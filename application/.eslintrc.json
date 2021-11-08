@@ -4,6 +4,15 @@
         "es2021": true
     },
     "extends": [
+        //https://javascript.plainenglish.io/setting-eslint-and-prettier-on-a-react-typescript-project-2021-22993565edf9
+        //Эти пакеты после обновления версий уже находятся в prettier ниже
+        //"prettier/prettier",
+        //"prettier/react",
+        //"prettier/@typescript-eslint",
+        //"plugin:prettier/recommended",
+    
+        //осн инструкция
+        "prettier",
         "plugin:react/recommended",
         "airbnb"
     ],
@@ -21,7 +30,24 @@
         "@typescript-eslint"
     ],
     "rules": {
+        //https://www.npmjs.com/package/eslint-plugin-prettier
+        //полезно! почему мы должны не включать другие правила!
+        //Этот плагин работает лучше всего, если вы отключите все другие правила ESLint, 
+        //связанные с форматированием кода, и включите только правила, 
+        //которые обнаруживают потенциальные ошибки. 
         "prettier/prettier": "error",  // Обязательно!! Подсвечивает ошибки из Prettier.
-        "react/prop-types": 0 // Отключаем правило проверки передаваемых типов.
+        "react/prop-types": 0, // Отключаем правило проверки передаваемых типов.
+        //"react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
+
+        //это прописано в документации реакт
+        //"react/jsx-uses-react": "off",
+        //"react/react-in-jsx-scope": "off"
+
+
+        // note you must disable the base rule as it can report incorrect errors
+        "no-use-before-define": "off",
+        "@typescript-eslint/no-use-before-define": ["error"],
+        
+        "eslint linebreak-style": ["error", "windows"]
     }
 }

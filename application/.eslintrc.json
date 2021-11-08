@@ -30,24 +30,55 @@
         "@typescript-eslint"
     ],
     "rules": {
+         "import/extensions": [
+            "error",
+            "ignorePackages",
+            {
+              "js": "never",
+              "jsx": "never",
+              "ts": "never",
+              "tsx": "never"
+            }
+          ], 
+          "comma-dangle": ["error", {
+            "arrays": "never",
+            "objects": "never",
+            "imports": "always",
+            "exports": "never",
+            "functions": "never"
+        }],
         //https://www.npmjs.com/package/eslint-plugin-prettier
         //полезно! почему мы должны не включать другие правила!
         //Этот плагин работает лучше всего, если вы отключите все другие правила ESLint, 
         //связанные с форматированием кода, и включите только правила, 
         //которые обнаруживают потенциальные ошибки. 
         "prettier/prettier": "error",  // Обязательно!! Подсвечивает ошибки из Prettier.
+
+        "arrow-body-style": "off",
+        "prefer-arrow-callback": "off",
+
         "react/prop-types": 0, // Отключаем правило проверки передаваемых типов.
-        //"react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
 
         //это прописано в документации реакт
-        //"react/jsx-uses-react": "off",
-        //"react/react-in-jsx-scope": "off"
+        "react/jsx-uses-react": "off",
+        "react/react-in-jsx-scope": "off",
 
 
         // note you must disable the base rule as it can report incorrect errors
         "no-use-before-define": "off",
         "@typescript-eslint/no-use-before-define": ["error"],
         
-        "eslint linebreak-style": ["error", "windows"]
-    }
+        // windows linebreaks when not in production environment
+        //"linebreak-style": ["error", "windows"],
+        "linebreak-style": 0,
+        "react/jsx-filename-extension": [2, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }]
+          
+    },
+    "settings": {
+        "import/resolver": {
+          "node": {
+            "extensions": [".js", ".jsx", ".ts", ".tsx"]
+          }
+        }
+      }
 }

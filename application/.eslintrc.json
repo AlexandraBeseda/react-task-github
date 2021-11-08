@@ -40,6 +40,7 @@
               "tsx": "never"
             }
           ], 
+          
           "comma-dangle": ["error", {
             "arrays": "never",
             "objects": "never",
@@ -52,7 +53,7 @@
         //Этот плагин работает лучше всего, если вы отключите все другие правила ESLint, 
         //связанные с форматированием кода, и включите только правила, 
         //которые обнаруживают потенциальные ошибки. 
-        "prettier/prettier": "error",  // Обязательно!! Подсвечивает ошибки из Prettier.
+        "prettier/prettier": ["error", {"endOfLine": "auto"}],  // Обязательно!! Подсвечивает ошибки из Prettier.
 
         "arrow-body-style": "off",
         "prefer-arrow-callback": "off",
@@ -71,7 +72,9 @@
         // windows linebreaks when not in production environment
         //"linebreak-style": ["error", "windows"],
         "linebreak-style": 0,
-        "react/jsx-filename-extension": [2, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }]
+        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
+        
+        "jsx-quotes": ["error", "prefer-double"]
           
     },
     "settings": {
@@ -80,5 +83,5 @@
             "extensions": [".js", ".jsx", ".ts", ".tsx"]
           }
         }
-      }
+}
 }

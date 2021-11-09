@@ -10,8 +10,8 @@ export const PATH = {
   CAR: '/car',
   CARS: '/cars',
   CART: '/cart',
-  PROFILE: '/profile',
-  ERROR404: '/error404'
+  PROFILE: '/',
+  ERROR404: '*'
 };
 export const PageRoutes: React.FC = () => (
   <div>

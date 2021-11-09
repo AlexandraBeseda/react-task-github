@@ -16,8 +16,5 @@ export const NavBar: React.FC = () => (
     <div>
       <NavLink to={PATH.PROFILE}>Profile</NavLink>
     </div>
-    <div>
-      <NavLink to={PATH.ERROR404}>Error 404</NavLink>
-    </div>
   </div>
 );

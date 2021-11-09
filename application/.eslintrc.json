@@ -30,6 +30,11 @@
         "@typescript-eslint"
     ],
     "rules": {
+      //https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/extensions.md
+      //"ignorePackages" предписывает использование расширений для всех операторов импорта, 
+      //кроме импорта пакетов.
+      //ниже настроено каждое расширение отдельно
+      //т.е. имопртируя js и т.д. не будет запрашивать расширение
       "import/extensions": [
         "error",
         "ignorePackages",
@@ -108,10 +113,12 @@
           
     },
     "settings": {
-        "import/resolver": {
-          "node": {
-            "extensions": [".js", ".jsx", ".ts", ".tsx"]
-          }
+      //разрешение путей при импорте в ESLint
+      //https://github.com/import-js/eslint-plugin-import
+      "import/resolver": {
+        "node": {
+          "extensions": [".js", ".jsx", ".ts", ".tsx"]
         }
-}
+      }
+    }
 }

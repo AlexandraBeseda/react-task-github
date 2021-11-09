@@ -30,59 +30,80 @@
         "@typescript-eslint"
     ],
     "rules": {
-         "import/extensions": [
-            "error",
-            "ignorePackages",
-            {
-              "js": "never",
-              "jsx": "never",
-              "ts": "never",
-              "tsx": "never"
-            }
-          ], 
-          
-          "comma-dangle": ["error", {
-            "arrays": "never",
-            "objects": "never",
-            "imports": "never",
-            "exports": "never",
-            "functions": "never"
-        }],
-        //https://www.npmjs.com/package/eslint-plugin-prettier
-        //полезно! почему мы должны не включать другие правила!
-        //Этот плагин работает лучше всего, если вы отключите все другие правила ESLint, 
-        //связанные с форматированием кода, и включите только правила, 
-        //которые обнаруживают потенциальные ошибки. 
-        "prettier/prettier": ["error", {"endOfLine": "auto"}],  // Обязательно!! Подсвечивает ошибки из Prettier.
+      "import/extensions": [
+        "error",
+        "ignorePackages",
+          {
+            "js": "never",
+            "jsx": "never",
+            "ts": "never",
+            "tsx": "never"
+          }
+        ], 
+      //конечные запятые, ошибка, если их нет в объектах таких то
+      //never (по умолчанию) запрещает использование запятых в конце
+      //в дальнейшем можно изменить, но допустим импорт по дефолту сразу выглядит некрасиво, т.к.
+      //интерпретатор считает что это объект {}
+      //но, допустим висячая запятая хорошо при использовании гита
+      //но попробовала с массивом и вылазит какая странная ошибка
+      "comma-dangle": ["error", {
+          "arrays": "never",
+          "objects": "never",
+          "imports": "never",
+          "exports": "never",
+          "functions": "never"
+      }],
+      //https://www.npmjs.com/package/eslint-plugin-prettier
+      //полезно! почему мы должны не включать другие правила!
+      //Этот плагин работает лучше всего, если вы отключите все другие правила ESLint, 
+      //связанные с форматированием кода, и включите только правила, 
+      //которые обнаруживают потенциальные ошибки. 
 
-        "arrow-body-style": "off",
-        "prefer-arrow-callback": "off",
+      // ESLint знает обо всех правилах Prettier, интегрируя все правила, 
+      //которые им применяются, и удаляя все правила, которые могут с ним конфликтовать. 
+      "prettier/prettier": ["error", {"endOfLine": "auto"}],  // Обязательно!! Подсвечивает ошибки из Prettier.
+      // "endOfLine": "auto" - не уверена, но запрещает коментарии в конце строки, только с новой
 
-        "react/prop-types": 0, // Отключаем правило проверки передаваемых типов.
+      // фигурные скобки в теле функции стрелки
+      // фигурные скобки в теле функции стрелки
+      "arrow-body-style": ["error", "as-needed"],
 
-        //это прописано в документации реакт
-        "react/jsx-uses-react": "off",
-        "react/react-in-jsx-scope": "off",
+      //правила для реакта
+      //https://github.com/yannickcr/eslint-plugin-react
+      // Отключаем правило проверки передаваемых типов.
+      //есть вопросик зачем? если тайпскрипт итак подсказывать будет...
+      "react/prop-types": "off", 
 
+      //это прописано в документации реакт
+      "react/jsx-uses-react": "off",
+      "react/react-in-jsx-scope": "off",
 
-        // note you must disable the base rule as it can report incorrect errors
-        "no-use-before-define": "off",
-        "@typescript-eslint/no-use-before-define": ["error"],
+      //не использовать до определения
+      //off - отключили данное правило 
+      // note you must disable the base rule as it can report incorrect errors
+      "no-use-before-define": "off",
+      "@typescript-eslint/no-use-before-define": "error",
         
-        // windows linebreaks when not in production environment
-        //"linebreak-style": ["error", "windows"],
-        "linebreak-style": 0,
-        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
+      //оператор-перенос строки
+      //пока откючила, посмотрим, как будет лучше
+      "linebreak-style": "off",
+
+      //разрешает использовать jsx в файлах с расширением .jsx и .tsx
+      "react/jsx-filename-extension": ["error", { "extensions": [".jsx", ".tsx"] }],
         
-        "jsx-quotes": ["error", "prefer-single"],
+      //обеспечить последовательное использование одинарных кавычек в атрибутах JSX
+      "jsx-quotes": ["error", "prefer-single"],
 
-
-
-        "object-curly-newline": ["error", {
-          "ObjectExpression": "always",
-          "ObjectPattern": { "multiline": true },
-          "ImportDeclaration": "never",
-          "ExportDeclaration": { "multiline": true, "minProperties": 3 }
+      //обеспечить согласованные разрывы строк после открытия и перед закрытием фигурных скобок 
+      "object-curly-newline": ["error", {
+        //конфигурация объектных литералов
+        "ObjectExpression": "always",
+        //конфигурация для объектных паттернов деструктурирующих назначений
+        "ObjectPattern": { "multiline": true },
+        //конфигурация для именованного импорта
+        "ImportDeclaration": "never",
+        //конфигурация для именованного экспорта
+        "ExportDeclaration": { "multiline": true, "minProperties": 3 }
       }]
           
     },

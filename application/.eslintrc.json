@@ -4,14 +4,6 @@
         "es2021": true
     },
     "extends": [
-        //https://javascript.plainenglish.io/setting-eslint-and-prettier-on-a-react-typescript-project-2021-22993565edf9
-        //Эти пакеты после обновления версий уже находятся в prettier ниже
-        //"prettier/prettier",
-        //"prettier/react",
-        //"prettier/@typescript-eslint",
-        //"plugin:prettier/recommended",
-    
-        //осн инструкция
         "prettier",
         "plugin:react/recommended",
         "airbnb"
@@ -30,11 +22,6 @@
         "@typescript-eslint"
     ],
     "rules": {
-      //https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/extensions.md
-      //"ignorePackages" предписывает использование расширений для всех операторов импорта, 
-      //кроме импорта пакетов.
-      //ниже настроено каждое расширение отдельно
-      //т.е. имопртируя js и т.д. не будет запрашивать расширение
       "import/extensions": [
         "error",
         "ignorePackages",
@@ -45,12 +32,6 @@
             "tsx": "never"
           }
         ], 
-      //конечные запятые, ошибка, если их нет в объектах таких то
-      //never (по умолчанию) запрещает использование запятых в конце
-      //в дальнейшем можно изменить, но допустим импорт по дефолту сразу выглядит некрасиво, т.к.
-      //интерпретатор считает что это объект {}
-      //но, допустим висячая запятая хорошо при использовании гита
-      //но попробовала с массивом и вылазит какая странная ошибка
       "comma-dangle": ["error", {
           "arrays": "never",
           "objects": "never",
@@ -58,63 +39,28 @@
           "exports": "never",
           "functions": "never"
       }],
-      //https://www.npmjs.com/package/eslint-plugin-prettier
-      //полезно! почему мы должны не включать другие правила!
-      //Этот плагин работает лучше всего, если вы отключите все другие правила ESLint, 
-      //связанные с форматированием кода, и включите только правила, 
-      //которые обнаруживают потенциальные ошибки. 
-
-      // ESLint знает обо всех правилах Prettier, интегрируя все правила, 
-      //которые им применяются, и удаляя все правила, которые могут с ним конфликтовать. 
-      "prettier/prettier": ["error", {"endOfLine": "auto"}],  // Обязательно!! Подсвечивает ошибки из Prettier.
-      // "endOfLine": "auto" - не уверена, но запрещает коментарии в конце строки, только с новой
-
-      // фигурные скобки в теле функции стрелки
-      // фигурные скобки в теле функции стрелки
+ 
+      "prettier/prettier": ["error", {"endOfLine": "auto"}], 
       "arrow-body-style": ["error", "as-needed"],
-
-      //правила для реакта
-      //https://github.com/yannickcr/eslint-plugin-react
-      // Отключаем правило проверки передаваемых типов.
-      //есть вопросик зачем? если тайпскрипт итак подсказывать будет...
       "react/prop-types": "off", 
 
-      //это прописано в документации реакт
       "react/jsx-uses-react": "off",
       "react/react-in-jsx-scope": "off",
 
-      //не использовать до определения
-      //off - отключили данное правило 
-      // note you must disable the base rule as it can report incorrect errors
       "no-use-before-define": "off",
       "@typescript-eslint/no-use-before-define": "error",
-        
-      //оператор-перенос строки
-      //пока откючила, посмотрим, как будет лучше
       "linebreak-style": "off",
-
-      //разрешает использовать jsx в файлах с расширением .jsx и .tsx
       "react/jsx-filename-extension": ["error", { "extensions": [".jsx", ".tsx"] }],
-        
-      //обеспечить последовательное использование одинарных кавычек в атрибутах JSX
       "jsx-quotes": ["error", "prefer-single"],
-
-      //обеспечить согласованные разрывы строк после открытия и перед закрытием фигурных скобок 
       "object-curly-newline": ["error", {
-        //конфигурация объектных литералов
         "ObjectExpression": "always",
-        //конфигурация для объектных паттернов деструктурирующих назначений
         "ObjectPattern": { "multiline": true },
-        //конфигурация для именованного импорта
         "ImportDeclaration": "never",
-        //конфигурация для именованного экспорта
         "ExportDeclaration": { "multiline": true, "minProperties": 3 }
-      }]
-          
+      }]     
     },
     "settings": {
-      //разрешение путей при импорте в ESLint
-      //https://github.com/import-js/eslint-plugin-import
+    
       "import/resolver": {
         "node": {
           "extensions": [".js", ".jsx", ".ts", ".tsx"]

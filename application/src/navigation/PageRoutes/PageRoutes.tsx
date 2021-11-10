@@ -14,13 +14,11 @@ export const PATH = {
   ERROR404: '*'
 };
 export const PageRoutes: React.FC = () => (
-  <div>
-    <Routes>
-      <Route path={PATH.CAR} element={<Car />} />
-      <Route path={PATH.CARS} element={<Cars />} />
-      <Route path={PATH.CART} element={<Cart />} />
-      <Route path={PATH.PROFILE} element={<Profile />} />
-      <Route path={PATH.ERROR404} element={<Error404 />} />
-    </Routes>
-  </div>
+  <Routes>
+    <Route path={PATH.CAR} element={<Car />} />
+    <Route path={PATH.CARS} element={<Cars />} />
+    <Route path={PATH.CART} element={<Cart />} />
+    <Route path={PATH.PROFILE} element={<Profile />} />
+    <Route path={PATH.ERROR404} element={<Error404 />} />
+  </Routes>
 );

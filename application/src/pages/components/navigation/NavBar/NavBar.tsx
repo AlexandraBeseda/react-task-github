@@ -17,6 +17,12 @@ export const NavBar: React.FC = () => (
       <li>
         <NavLink to={PATH.PROFILE}>Profile</NavLink>
       </li>
+      <li>
+        <NavLink to={PATH.LOGIN}>Log in</NavLink>
+      </li>
+      <li>
+        <NavLink to={PATH.REGISTRATION}>Registration</NavLink>
+      </li>
     </ul>
   </nav>
 );

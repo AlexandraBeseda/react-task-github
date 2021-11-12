@@ -22,6 +22,7 @@
         "@typescript-eslint"
     ],
     "rules": {
+      "operator-linebreak":"off",
       "prefer-const":"warn",
       "max-len":"off",
       "no-unused-vars":"warn",
@@ -51,6 +52,12 @@
 
       "react/jsx-uses-react": "off",
       "react/react-in-jsx-scope": "off",
+      //это значение по умолчанию
+      //не могу из-за этого правила сделать навлинк актив
+      "react/jsx-curly-newline":["error",{
+        "multiline": "consistent" ,
+        "singleline": "consistent"
+      }],
 
       "no-use-before-define": "off",
       "@typescript-eslint/no-use-before-define": "error",
@@ -60,7 +67,7 @@
       "object-curly-newline": ["error", {
         "ObjectExpression": { "multiline": true },
         "ObjectPattern": { "multiline": true },
-        "ImportDeclaration": { "multiline": true },
+        "ImportDeclaration": { "multiline": true, "minProperties": 3 },
         "ExportDeclaration": { "multiline": true, "minProperties": 3 }
       }]     
     },

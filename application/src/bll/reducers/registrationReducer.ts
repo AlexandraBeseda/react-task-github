@@ -57,13 +57,13 @@ export const checkEmailPassword =
   (email: string, password: string) => (dispatch: Dispatch) => {
     const passwordLocal = localStorage.getItem('password');
     const emailLocal = localStorage.getItem('email');
-    if (passwordLocal && passwordLocal === password) {
+    if ((passwordLocal && passwordLocal) === password) {
       dispatch(setPassword(password));
       dispatch(setError(''));
     } else {
       dispatch(setError('Password is not correct'));
     }
-    if (emailLocal && emailLocal === email) {
+    if ((emailLocal && emailLocal) === email) {
       dispatch(setEmail(email));
     } else {
       dispatch(setError('Email is not correct'));

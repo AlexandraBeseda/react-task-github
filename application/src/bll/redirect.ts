@@ -4,28 +4,25 @@ import { PATH } from '../pages/PageRoutes/PageRoutes';
 import { store } from './store';
 
 export const redirect = () => {
-  let passwordLocal;
-  let emailLocal;
+  let password;
+  let email;
   let passwordRegistrReducer;
   let emailRegistrReducer;
 
   const navigate = useNavigate();
 
   useEffect(() => {
-    passwordLocal = localStorage.getItem('password');
-    emailLocal = localStorage.getItem('email');
+    password = localStorage.getItem('password');
+    email = localStorage.getItem('email');
     passwordRegistrReducer = store.getState().registration.password;
     emailRegistrReducer = store.getState().registration.email;
 
-    if (!passwordLocal && !emailLocal) {
+    const isUserREgistered = passwordRegistrReducer && emailRegistrReducer;
+    const isUserAuthorized = password && email;
+    if (!isUserAuthorized) {
       navigate(PATH.REGISTRATION);
-    } else if (
-      passwordLocal &&
-      emailLocal &&
-      !passwordRegistrReducer &&
-      !emailRegistrReducer
-    ) {
+    } else if (isUserAuthorized && !isUserREgistered) {
       navigate(PATH.LOGIN);
     }
-  }, [passwordLocal, emailLocal, passwordRegistrReducer, emailRegistrReducer]);
+  }, [password, email, passwordRegistrReducer, emailRegistrReducer]);
 };

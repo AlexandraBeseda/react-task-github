@@ -5,7 +5,7 @@ import { PageRoutes } from './pages/PageRoutes/PageRoutes';
 
 function App() {
   return (
-    <div className='.app'>
+    <div className="app">
       <NavBar />
       <PageRoutes />
     </div>

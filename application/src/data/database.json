@@ -1,0 +1,131 @@
+[
+  {
+    "id": 1,
+    "brand": "BMW",
+    "model": "X2 xDrive28i",
+    "colour": "Black Sapphire",
+    "picture": "https://i.ytimg.com/vi/8Aow11RdWv8/maxresdefault.jpg",
+    "description": "Sport Automatic, M SportX Package (33A), M SportX Exterior Package, Without Lines Designation Outside.",
+    "price": 33.798,
+    "length": 3345,
+    "height": 1923,
+    "width": 1077
+  },
+  {
+    "id": 2,
+    "brand": "Volvo",
+    "model": "XC60 T6 Momentum",
+    "picture": "https://i.ytimg.com/vi/8Aow11RdWv8/maxresdefault.jpg",
+
+    "colour": "Gray Metallic",
+    "description": "Leather Seats, Bluetooth Connection, Rear Spoiler,All Wheel Drive,Maroon Brown; Leather Seating Surfaces",
+    "price": 32.998,
+    "length": 3345,
+    "height": 1923,
+    "width": 1077
+  },
+  {
+    "id": 3,
+    "brand": "Lexus",
+    "model": "RX 350",
+    "picture": "https://i.ytimg.com/vi/8Aow11RdWv8/maxresdefault.jpg",
+
+    "colour": "Nightfall Mica",
+    "description": "Adaptive Cruise Control, Heated Seats, Heated Steering Wheel, Keyless Start, Navigation System, Power Liftgate",
+    "price": 43.995,
+    "length": 3345,
+    "height": 1223,
+    "width": 1277
+  },
+  {
+    "id": 4,
+    "brand": "Jeep",
+    "model": "Wrangler Unlimited Rubicon",
+    "picture": "https://i.ytimg.com/vi/8Aow11RdWv8/maxresdefault.jpg",
+
+    "colour": "Mojito",
+    "description": "Backup Camera, Blind Spot Monitor, Brake Assist, Stability Control",
+    "price": 55.983,
+    "length": 3400,
+    "height": 2300,
+    "width": 1017
+  },
+  {
+    "id": 5,
+    "brand": "Subaru",
+    "model": "Outback 3.6R Limited",
+    "picture": "https://i.ytimg.com/vi/8Aow11RdWv8/maxresdefault.jpg",
+
+    "colour": "Venetian Red Pearl",
+    "description": "Backup Camera, Blind Spot Monitor, Brake Assist, Stability Control",
+    "price": 26.418,
+    "length": 3451,
+    "height": 2000,
+    "width": 1200
+  },
+  {
+    "id": 6,
+    "brand": "Honda",
+    "model": "Civic Sport",
+    "picture": "https://i.ytimg.com/vi/8Aow11RdWv8/maxresdefault.jpg",
+
+    "colour": "Gray",
+    "description": "Automatic Emergency Braking,Backup Camera,Brake Assist,Lane Departure Warning,Stability Control",
+    "price": 16.765,
+    "length": 3151,
+    "height": 1600,
+    "width": 1100
+  },
+  {
+    "id": 7,
+    "brand": "Audi",
+    "model": "A5 2.0T Premium",
+    "picture": "https://i.ytimg.com/vi/8Aow11RdWv8/maxresdefault.jpg",
+
+    "colour": "Brilliant Black",
+    "description": "Automatic Emergency Braking, Backup Camera, Brake Assist, Stability Control",
+    "price": 37.432,
+    "length": 3151,
+    "height": 1600,
+    "width": 1100
+  },
+  {
+    "id": 8,
+    "brand": "Lincoln",
+    "model": "MKZ Base",
+    "picture": "https://i.ytimg.com/vi/8Aow11RdWv8/maxresdefault.jpg",
+
+    "colour": "Red",
+    "description": "Auto is great and will serve our needs for years to come. we went from a basic 2011 vehicle to this Lincoln with much high tech. The style and ride is excellent",
+    "price": 12.499,
+    "length": 3456,
+    "height": 1653,
+    "width": 1258
+  },
+  {
+    "id": 9,
+    "brand": "Chevrolet",
+    "model": "Silverado 2500 Custom",
+    "picture": "https://i.ytimg.com/vi/8Aow11RdWv8/maxresdefault.jpg",
+
+    "colour": "White",
+    "description": "Fully serviced and inspected 30 day powertrain plus warranty.4wd.one owner.6.6l gas engine.backup camera.usb hookup.bluetooth.bedcover.bedliner.on-star.running boards.satellite radio.tow package.",
+    "price": 54.995,
+    "length": 3890,
+    "height": 2101,
+    "width": 1400
+  },
+  {
+    "id": 10,
+    "brand": "Porsche ",
+    "model": "Cayenne GTS",
+    "picture": "https://i.ytimg.com/vi/8Aow11RdWv8/maxresdefault.jpg",
+
+    "colour": "Black matt",
+    "description": "This vehicle includes a Money-Back Guarantee and passed our precise inspection process.",
+    "price": 39.992,
+    "length": 3890,
+    "height": 2101,
+    "width": 1400
+  }
+]

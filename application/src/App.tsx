@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
-import { NavBar } from './navigation/NavBar/NavBar';
-import { PageRoutes } from './navigation/PageRoutes/PageRoutes';
+import { NavBar } from './pages/NavBar/NavBar';
+import { PageRoutes } from './pages/PageRoutes/PageRoutes';
 
 function App() {
   return (
-    <div>
+    <div className="app">
       <NavBar />
       <PageRoutes />
     </div>

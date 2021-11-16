@@ -22,6 +22,12 @@
         "@typescript-eslint"
     ],
     "rules": {
+      "no-confusing-arrow": ["off"],
+      "operator-linebreak":"off",
+      "prefer-const":"warn",
+      "max-len":"off",
+      "no-unused-vars":"warn",
+      "implicit-arrow-linebreak":"off",
       "import/prefer-default-export": "off",
       "import/extensions": [
         "error",
@@ -42,21 +48,25 @@
       }],
  
       "prettier/prettier": ["error", {"endOfLine": "auto"}], 
-      "arrow-body-style": ["error", "as-needed"],
+      "arrow-body-style": ["error", "as-needed", { "requireReturnForObjectLiteral": true }],
       "react/prop-types": "off", 
 
       "react/jsx-uses-react": "off",
       "react/react-in-jsx-scope": "off",
+      "react/jsx-curly-newline":["off",{
+        "multiline": "consistent" ,
+        "singleline": "consistent"
+      }],
 
       "no-use-before-define": "off",
       "@typescript-eslint/no-use-before-define": "error",
       "linebreak-style": "off",
       "react/jsx-filename-extension": ["error", { "extensions": [".jsx", ".tsx"] }],
-      "jsx-quotes": ["error", "prefer-single"],
+      "jsx-quotes": ["error","prefer-double"],
       "object-curly-newline": ["error", {
-        "ObjectExpression": "always",
+        "ObjectExpression": { "multiline": true },
         "ObjectPattern": { "multiline": true },
-        "ImportDeclaration": "never",
+        "ImportDeclaration": { "multiline": true },
         "ExportDeclaration": { "multiline": true, "minProperties": 3 }
       }]     
     },

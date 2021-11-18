@@ -1,11 +1,11 @@
 import React from 'react';
 import { redirect } from '../../bll/redirect';
 
-export const Cart: React.FC = () => {
+export const Card: React.FC = () => {
   redirect();
   return (
     <div>
-      <p>Cart component</p>
+      <p>Card component</p>
     </div>
   );
 };

@@ -1,0 +1,25 @@
+.car {
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  height: 30%;
+  background-color: rgb(244, 247, 248);
+  justify-content: flex-start;
+  margin: 10px;
+}
+
+.img {
+  width: 33%;
+  height: 33%;
+}
+
+.description {
+  display: flex;
+  margin: 10px;
+  flex-direction: column;
+  text-align: start;
+}
+
+.text {
+  border-top: 1px solid slategray;
+}

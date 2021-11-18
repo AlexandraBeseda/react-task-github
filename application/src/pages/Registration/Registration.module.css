@@ -1,0 +1,33 @@
+.main {
+  color: white;
+  height: calc(100vh - 100px);
+  background-image: url('../../assets/img/login-background.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.table {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+}
+
+input {
+  width: 80%;
+  height: 30px;
+  margin: 10px;
+  border: 0;
+  resize: none;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.06);
+}
+
+.error {
+  height: 30px;
+}

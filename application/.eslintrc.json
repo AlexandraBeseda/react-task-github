@@ -1,0 +1,81 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "extends": [
+        "prettier",
+        "plugin:react/recommended",
+        "airbnb"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 12,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react",
+        "prettier",
+        "@typescript-eslint"
+    ],
+    "rules": {
+      "no-confusing-arrow": ["off"],
+      "operator-linebreak":"off",
+      "prefer-const":"warn",
+      "max-len":"off",
+      "no-unused-vars":"warn",
+      "implicit-arrow-linebreak":"off",
+      "import/prefer-default-export": "off",
+      "import/extensions": [
+        "error",
+        "ignorePackages",
+          {
+            "js": "never",
+            "jsx": "never",
+            "ts": "never",
+            "tsx": "never"
+          }
+        ], 
+      "comma-dangle": ["error", {
+          "arrays": "never",
+          "objects": "never",
+          "imports": "never",
+          "exports": "never",
+          "functions": "never"
+      }],
+ 
+      "prettier/prettier": ["error", {"endOfLine": "auto"}], 
+      "arrow-body-style": ["error", "as-needed", { "requireReturnForObjectLiteral": true }],
+      "react/prop-types": "off", 
+
+      "react/jsx-uses-react": "off",
+      "react/react-in-jsx-scope": "off",
+      "react/jsx-curly-newline":["off",{
+        "multiline": "consistent" ,
+        "singleline": "consistent"
+      }],
+
+      "no-use-before-define": "off",
+      "@typescript-eslint/no-use-before-define": "error",
+      "linebreak-style": "off",
+      "react/jsx-filename-extension": ["error", { "extensions": [".jsx", ".tsx"] }],
+      "jsx-quotes": ["error","prefer-double"],
+      "object-curly-newline": ["error", {
+        "ObjectExpression": { "multiline": true },
+        "ObjectPattern": { "multiline": true },
+        "ImportDeclaration": { "multiline": true },
+        "ExportDeclaration": { "multiline": true, "minProperties": 3 }
+      }]     
+    },
+    "settings": {
+    
+      "import/resolver": {
+        "node": {
+          "extensions": [".js", ".jsx", ".ts", ".tsx"]
+        }
+      }
+    }
+}

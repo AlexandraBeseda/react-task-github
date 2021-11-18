@@ -20,6 +20,7 @@ export const NavBar: React.FC = () => {
   const NAV_BAR_ARRAY = [
     { id: v1(), pageName: 'Cars', path: PATH.CARS },
     { id: v1(), pageName: 'Card', path: PATH.CARD },
+    { id: v1(), pageName: 'Cars', path: PATH.CARS },
     { id: v1(), pageName: 'Profile', path: PATH.PROFILE },
     { id: v1(), pageName: 'Login', path: PATH.LOGIN },
     { id: v1(), pageName: 'Registration', path: PATH.REGISTRATION },

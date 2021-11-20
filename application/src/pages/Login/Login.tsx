@@ -2,11 +2,13 @@ import { Formik } from 'formik';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { redirect } from '../../bll/redirect';
 import { checkEmailPassword } from '../../bll/reducers/registrationReducer';
 import { select } from '../../bll/select';
 import { validateRegistrLogin } from '../../utils/validateRegistrLogin';
 import { PATH } from '../PageRoutes/PageRoutes';
+import '../../utils/i18next';
 
 import styles from './Login.module.css';
 
@@ -21,10 +23,11 @@ export const Login: React.FC = () => {
       navigate(PATH.PROFILE);
     }
   }, [password, email]);
+  const { t } = useTranslation();
   return (
     <div className={styles.main}>
       <div className={styles.table}>
-        <h1>Login page</h1>
+        <h1>{t('Login')}</h1>
         <Formik
           initialValues={{
             email: '',

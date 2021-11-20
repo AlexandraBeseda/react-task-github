@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import { BrowserRouter } from 'react-router-dom';
@@ -6,12 +6,15 @@ import { Provider } from 'react-redux';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { store } from './bll/store';
+import './utils/i18next';
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <Provider store={store}>
-        <App />
+        <Suspense fallback="...is loading">
+          <App />
+        </Suspense>
       </Provider>
     </BrowserRouter>
   </React.StrictMode>,

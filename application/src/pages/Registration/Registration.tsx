@@ -1,5 +1,6 @@
 import { Formik } from 'formik';
 import React, { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { redirect } from '../../bll/redirect';
@@ -13,6 +14,7 @@ export const Registration: React.FC = () => {
   redirect();
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const { password, email } = useSelector(select);
 
   useEffect(() => {
@@ -24,15 +26,13 @@ export const Registration: React.FC = () => {
   return (
     <div className={styles.main}>
       <div className={styles.table}>
-        <h1>Registration page</h1>
+        <h1>{t('Registration')}</h1>
         <Formik
           initialValues={{
             email: '',
             password: ''
           }}
-          validate={(values) => {
-            validateRegistrLogin(values);
-          }}
+          validate={(values) => validateRegistrLogin(values)}
           onSubmit={(values, { setSubmitting }) => {
             setSubmitting(false);
             dispatch(setEmailPassword(values.email, values.password));
@@ -49,7 +49,7 @@ export const Registration: React.FC = () => {
           }) => (
             <form onSubmit={handleSubmit}>
               <input
-                placeholder="Email"
+                placeholder={t('Email')}
                 type="email"
                 name="email"
                 onChange={handleChange}
@@ -57,10 +57,10 @@ export const Registration: React.FC = () => {
                 value={values.email}
               />
               <div className={styles.error}>
-                {errors.email && touched.email && errors.email}
+                {errors.email && touched.email && t(errors.email)}
               </div>
               <input
-                placeholder="Password"
+                placeholder={t('Password')}
                 type="password"
                 name="password"
                 onChange={handleChange}
@@ -68,11 +68,11 @@ export const Registration: React.FC = () => {
                 value={values.password}
               />
               <div className={styles.error}>
-                {errors.password && touched.password && errors.password}
+                {errors.password && touched.password && t(errors.password)}
               </div>
               <div>
                 <button type="submit" disabled={isSubmitting}>
-                  Submit
+                  {t('Submit')}
                 </button>
               </div>
             </form>

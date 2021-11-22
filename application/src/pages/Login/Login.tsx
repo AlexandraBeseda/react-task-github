@@ -8,7 +8,6 @@ import { checkEmailPassword } from '../../bll/reducers/registrationReducer';
 import { select } from '../../bll/select';
 import { validateRegistrLogin } from '../../utils/validateRegistrLogin';
 import { PATH } from '../PageRoutes/PageRoutes';
-import '../../utils/i18next';
 
 import styles from './Login.module.css';
 
@@ -50,7 +49,7 @@ export const Login: React.FC = () => {
           }) => (
             <form onSubmit={handleSubmit}>
               <input
-                placeholder="Email"
+                placeholder={t('Email')}
                 type="email"
                 name="email"
                 onChange={handleChange}
@@ -58,10 +57,10 @@ export const Login: React.FC = () => {
                 value={values.email}
               />
               <div className={styles.error}>
-                {errors.email && touched.email && errors.email}
+                {errors.email && touched.email && t(errors.email)}
               </div>
               <input
-                placeholder="Password"
+                placeholder={t('Password')}
                 type="password"
                 name="password"
                 onChange={handleChange}
@@ -69,11 +68,11 @@ export const Login: React.FC = () => {
                 value={values.password}
               />
               <div className={styles.error}>
-                {errors.password && touched.password && errors.password}
+                {errors.password && touched.password && t(errors.password)}
               </div>
               <div>
                 <button type="submit" disabled={isSubmitting}>
-                  Submit
+                  {t('Submit')}
                 </button>
               </div>
             </form>

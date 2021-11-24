@@ -27,3 +27,16 @@ a:hover {
   color: blue;
   border-color: blue;
 }
+
+.button {
+  background-color: transparent;
+  color: white;
+  border: 2px solid #fff;
+  font-weight: 600;
+  transition: all 1s cubic-bezier(1, 0, 0, 1);
+}
+
+.button:hover {
+  background-color: white;
+  color: darkslategray;
+}

@@ -9,18 +9,16 @@ const VALIDATE_EMAIL = new RegExp(
   'i'
 );
 export const validateRegistrLogin = (values: FormValues) => {
-  // wrong with REgistration page
   const errors: FormikErrors<FormValues> = {};
   if (!values.email) {
-    errors.email = 'Required';
+    errors.email = 'required';
   } else if (!VALIDATE_EMAIL.test(values.email)) {
-    errors.email = 'Invalid email address';
+    errors.email = 'invalidEmailAddress';
   }
-  // use localization
   if (!values.password) {
-    errors.password = 'Required';
+    errors.password = 'required';
   } else if (values.password.length < 5) {
-    errors.password = 'Must be 5 characters or more';
+    errors.password = 'passwordLenght';
   }
   return errors;
 };

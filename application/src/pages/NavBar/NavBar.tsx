@@ -20,12 +20,12 @@ export const NavBar: React.FC = () => {
   };
 
   const NAV_BAR_ARRAY = [
-    { id: v1(), pageName: 'Cars', path: PATH.CARS },
-    { id: v1(), pageName: 'Card', path: PATH.CARD },
-    { id: v1(), pageName: 'Profile', path: PATH.PROFILE },
-    { id: v1(), pageName: 'Login', path: PATH.LOGIN },
-    { id: v1(), pageName: 'Registration', path: PATH.REGISTRATION },
-    { id: v1(), pageName: 'Error 404', path: PATH.ERROR404 }
+    { id: v1(), pageName: 'cars', path: PATH.CARS },
+    { id: v1(), pageName: 'card', path: PATH.CARD },
+    { id: v1(), pageName: 'profile', path: PATH.PROFILE },
+    { id: v1(), pageName: 'login', path: PATH.LOGIN },
+    { id: v1(), pageName: 'registration', path: PATH.REGISTRATION },
+    { id: v1(), pageName: 'error404', path: PATH.ERROR404 }
   ];
   const handleENG = () => {
     i18n.changeLanguage('en');
@@ -38,10 +38,10 @@ export const NavBar: React.FC = () => {
     <nav className={styles.main}>
       <ul className={styles.menu}>
         <button type="button" onClick={handleENG}>
-          {t('ENG')}
+          {t('common.language.english')}
         </button>
         <button type="button" onClick={handleRU}>
-          {t('RU')}
+          {t('common.language.russian')}
         </button>
         {NAV_BAR_ARRAY.map((elem) => (
           <li key={elem.id}>
@@ -52,13 +52,13 @@ export const NavBar: React.FC = () => {
               }
               to={elem.path}
             >
-              {t(elem.pageName)}
+              {t(`header.links.${elem.pageName}`)}
             </NavLink>
           </li>
         ))}
       </ul>
-      <button type="button" onClick={deleteAccount}>
-        {t('Delete Account')}
+      <button className={styles.button} type="button" onClick={deleteAccount}>
+        {t('common.button.deleteAccount')}
       </button>
     </nav>
   );

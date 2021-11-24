@@ -1,35 +1,59 @@
 {
-  "Login": "Логин",
-  "Cars": "Автомобиль",
-  "Profile": "Профиль",
-  "Registration": "Регистрация",
-  "Card": "Платежная карта",
-  "Email": "Электронная почта",
-  "Password": "Пароль",
-  "Delete Account": "Удалить аккаунт",
-  "ENG": "Англ",
-  "RU": "Рус",
-  "Required": "Требуемый",
-  "Submit": "Подтвердить",
-  "Model": "Модель",
-  "Price": "Цена",
-  "Colour": "Цвет",
-  "Length": "Длина",
-  "Width": "Ширина",
-  "Height": "Высота",
-  "Description": "Описание",
-  "Invalid email address": "Недопустимое имя электронной почты",
-  "Must be 5 characters or more": "Длина должна быть более 5 элементов",
-  "Error 404": "Ошибка 404",
+  "header": {
+    "links": {
+      "cars": "Автомобиль",
+      "card": "Платежная карта",
+      "login": "Логин",
+      "profile": "Профиль",
+      "registration": "Регистрация",
+      "error404": "Ошибка 404"
+    }
+  },
 
-  "Black Sapphire": "Черный сапфир",
-  "Gray Metallic": "Серый металлик",
-  "Nightfall Mica": "Сумрачная слюда",
-  "Mojito": "Мохито",
-  "Venetian Red Pearl": "Венецианская красная жемчужина",
-  "Gray": "Серый",
-  "Brilliant Black": "Блестящий черный",
-  "Red": "Красный",
-  "White": "Белый",
-  "Black matt": "Черный матовый"
+  "form": {
+    "field": {
+      "email": "Электронная почта",
+      "password": "Пароль"
+    },
+    "error": {
+      "required": "Требуемый",
+      "invalidEmailAddress": "Недопустимое имя электронной почты",
+      "passwordLenght": "Длина должна быть более 5 элементов"
+    }
+  },
+  "car": {
+    "param": {
+      "model": "Модель",
+      "price": "Цена",
+      "colour": "Цвет",
+      "length": "Длина",
+      "width": "Ширина",
+      "height": "Высота",
+      "description": "Описание"
+    },
+    "property": {
+      "colour": {
+        "blackSapphire": "Черный сапфир",
+        "grayMetallic": "Серый металлик",
+        "nightfallMica": "Сумрачная слюда",
+        "mojito": "Мохито",
+        "venetianRedPearl": "Венецианская красная жемчужина",
+        "gray": "Серый",
+        "brilliantBlack": "Блестящий черный",
+        "red": "Красный",
+        "white": "Белый",
+        "blackMatt": "Черный матовый"
+      }
+    }
+  },
+  "common": {
+    "button": {
+      "submit": "Подтвердить",
+      "deleteAccount": "Удалить аккаунт"
+    },
+    "language": {
+      "english": "Англ",
+      "russian": "Рус"
+    }
+  }
 }

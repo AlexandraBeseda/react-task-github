@@ -12,21 +12,23 @@ import { PATH } from '../PageRoutes/PageRoutes';
 import styles from './Login.module.css';
 
 export const Login: React.FC = () => {
-  redirect();
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { password, email, error } = useSelector(select);
+  const { t } = useTranslation();
+
+  redirect();
 
   useEffect(() => {
     if (password && email) {
       navigate(PATH.PROFILE);
     }
   }, [password, email]);
-  const { t } = useTranslation();
+
   return (
     <div className={styles.main}>
       <div className={styles.table}>
-        <h1>{t('Login')}</h1>
+        <h1>{t('header.links.login')}</h1>
         <Formik
           initialValues={{
             email: '',
@@ -49,7 +51,7 @@ export const Login: React.FC = () => {
           }) => (
             <form onSubmit={handleSubmit}>
               <input
-                placeholder={t('Email')}
+                placeholder={t('form.field.email')}
                 type="email"
                 name="email"
                 onChange={handleChange}
@@ -57,10 +59,12 @@ export const Login: React.FC = () => {
                 value={values.email}
               />
               <div className={styles.error}>
-                {errors.email && touched.email && t(errors.email)}
+                {errors.email &&
+                  touched.email &&
+                  t(`form.error.${errors.email}`)}
               </div>
               <input
-                placeholder={t('Password')}
+                placeholder={t('form.field.password')}
                 type="password"
                 name="password"
                 onChange={handleChange}
@@ -68,11 +72,13 @@ export const Login: React.FC = () => {
                 value={values.password}
               />
               <div className={styles.error}>
-                {errors.password && touched.password && t(errors.password)}
+                {errors.password &&
+                  touched.password &&
+                  t(`form.error.${errors.password}`)}
               </div>
               <div>
                 <button type="submit" disabled={isSubmitting}>
-                  {t('Submit')}
+                  {t('common.button.submit')}
                 </button>
               </div>
             </form>

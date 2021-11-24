@@ -24,12 +24,9 @@ i18n
       order: ['localStorage', 'cookie'],
       caches: ['localStorage', 'cookie']
     },
-    keySeparator: false, // we do not use keys in form messages.welcome
-    interpolation: {
-      // not needed for react!
-      // react already safes from xss
-      escapeValue: false
-    },
+    // keySeparator: false,
+    // we use keys!
+    // true is by default
     resources: {
       en: { translation: translationENG },
       ru: { translation: translationRU }

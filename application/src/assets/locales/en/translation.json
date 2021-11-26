@@ -1,0 +1,58 @@
+{
+  "header": {
+    "links": {
+      "cars": "Cars",
+      "card": "Card",
+      "login": "Login",
+      "profile": "Profile",
+      "registration": "Registration",
+      "error404": "Error 404"
+    }
+  },
+  "form": {
+    "field": {
+      "email": "Email",
+      "password": "Password"
+    },
+    "error": {
+      "required": "Required",
+      "invalidEmailAddress": "Invalid email address",
+      "passwordLenght": "Must be longer then 5 simbols"
+    }
+  },
+  "car": {
+    "param": {
+      "model": "Model",
+      "price": "Price",
+      "colour": "Colour",
+      "length": "Lenght",
+      "width": "Width",
+      "height": "Height",
+      "description": "Description"
+    },
+    "property": {
+      "colour": {
+        "blackSapphire": "Black Sapphire",
+        "grayMetallic": "Gray Metallic",
+        "nightfallMica": "Nightfall Mica",
+        "mojito": "Mojito",
+        "venetianRedPearl": "Venetian Red Pearl",
+        "gray": "Gray",
+        "brilliantBlack": "Brilliant Black",
+        "red": "Red",
+        "white": "White",
+        "blackMatt": "Black matt"
+      }
+    }
+  },
+  "common": {
+    "button": {
+      "submit": "Submit",
+      "deleteAccount": "Delete Account"
+    },
+    "language": {
+      "english": "En",
+      "russian": "Ru"
+    }
+  }
+}

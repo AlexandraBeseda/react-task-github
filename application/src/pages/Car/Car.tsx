@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { redirect } from '../../bll/redirect';
 import style from './Car.module.css';
 
@@ -26,16 +27,26 @@ export const Car: React.FC<CarPropTypes> = ({
   description,
   ...props
 }) => {
+  const { t } = useTranslation();
+
   redirect();
   return (
     <div className={style.car}>
       <img className={style.img} src={`${picture}`} alt="car" />
       <div className={style.description}>
-        <h2>{`Model: ${brand} ${model}`}</h2>
-        <h3>{`Price: ${price}$`}</h3>
-        <p>{`Colour: ${colour}`}</p>
-        <p>{`Length x Width x Height: ${length} x ${width} x ${height}`}</p>
-        <p className={style.text}>{`Description: ${description}`}</p>
+        <h2>{`${t('car.param.model')}: ${brand} ${model}`}</h2>
+        <h3>{`${t('car.param.price')}: ${price}$`}</h3>
+        <p>
+          {`${t('car.param.price')}: ${t(`car.property.colour.${colour}`)}`}
+        </p>
+        <p>
+          {`${t('car.param.length')} x ${t('car.param.width')} x ${t(
+            'car.param.height'
+          )}: ${length} x ${width} x ${height}`}
+        </p>
+        <p className={style.text}>
+          {`${t('car.param.description')}: ${description}`}
+        </p>
       </div>
     </div>
   );

@@ -1,0 +1,59 @@
+{
+  "header": {
+    "links": {
+      "cars": "Автомобиль",
+      "card": "Платежная карта",
+      "login": "Логин",
+      "profile": "Профиль",
+      "registration": "Регистрация",
+      "error404": "Ошибка 404"
+    }
+  },
+
+  "form": {
+    "field": {
+      "email": "Электронная почта",
+      "password": "Пароль"
+    },
+    "error": {
+      "required": "Требуемый",
+      "invalidEmailAddress": "Недопустимое имя электронной почты",
+      "passwordLenght": "Длина должна быть более 5 элементов"
+    }
+  },
+  "car": {
+    "param": {
+      "model": "Модель",
+      "price": "Цена",
+      "colour": "Цвет",
+      "length": "Длина",
+      "width": "Ширина",
+      "height": "Высота",
+      "description": "Описание"
+    },
+    "property": {
+      "colour": {
+        "blackSapphire": "Черный сапфир",
+        "grayMetallic": "Серый металлик",
+        "nightfallMica": "Сумрачная слюда",
+        "mojito": "Мохито",
+        "venetianRedPearl": "Венецианская красная жемчужина",
+        "gray": "Серый",
+        "brilliantBlack": "Блестящий черный",
+        "red": "Красный",
+        "white": "Белый",
+        "blackMatt": "Черный матовый"
+      }
+    }
+  },
+  "common": {
+    "button": {
+      "submit": "Подтвердить",
+      "deleteAccount": "Удалить аккаунт"
+    },
+    "language": {
+      "english": "Англ",
+      "russian": "Рус"
+    }
+  }
+}

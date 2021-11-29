@@ -3,6 +3,8 @@
     "links": {
       "cars": "Cars",
       "card": "Card",
+      "basket": "Basket",
+
       "login": "Login",
       "profile": "Profile",
       "registration": "Registration",
@@ -48,11 +50,18 @@
   "common": {
     "button": {
       "submit": "Submit",
-      "deleteAccount": "Delete Account"
+      "deleteAccount": "Delete Account",
+      "addToCard": "Add to card",
+      "delete": "Delete"
     },
     "language": {
       "english": "En",
       "russian": "Ru"
     }
+  },
+  "card": {
+    "amount": "Amount",
+    "total": "Total",
+    "basketIsEmpty": "Your basket is empty"
   }
 }

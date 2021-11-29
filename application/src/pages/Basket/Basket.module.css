@@ -1,0 +1,54 @@
+.mainBlock {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.card {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid black;
+  padding: 10px;
+  width: 80%;
+  height: 30%;
+  background-color: rgb(244, 247, 248);
+  margin: 10px;
+  align-items: center;
+}
+
+.description {
+  display: flex;
+  margin: 10px;
+  flex-direction: column;
+  text-align: start;
+}
+.carName {
+  width: 500px;
+  text-align: start;
+}
+.carPrice {
+  width: 300px;
+  text-align: center;
+}
+.totalPrice {
+  width: 200px;
+  text-align: center;
+}
+
+.input {
+  width: 100px;
+  text-align: center;
+}
+.basket {
+  text-align: end;
+}
+.icon {
+  color: black;
+  transition: color 0.2s ease-in-out;
+  font-size: 24px;
+}
+.icon:hover {
+  color: red;
+}

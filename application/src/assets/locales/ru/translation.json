@@ -1,8 +1,10 @@
 {
   "header": {
     "links": {
-      "cars": "Автомобиль",
+      "cars": "Автомобили",
       "card": "Платежная карта",
+      "basket": "Корзина",
+
       "login": "Логин",
       "profile": "Профиль",
       "registration": "Регистрация",
@@ -49,11 +51,18 @@
   "common": {
     "button": {
       "submit": "Подтвердить",
-      "deleteAccount": "Удалить аккаунт"
+      "deleteAccount": "Удалить аккаунт",
+      "addToCard": "Добавить в корзину",
+      "delete": "Удалить"
     },
     "language": {
       "english": "Англ",
       "russian": "Рус"
     }
+  },
+  "card": {
+    "amount": "Количество",
+    "total": "Сумма",
+    "basketIsEmpty": "Ваша корзина пуста"
   }
 }

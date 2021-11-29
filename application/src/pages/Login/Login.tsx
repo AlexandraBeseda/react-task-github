@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { redirect } from '../../bll/redirect';
 import { checkEmailPassword } from '../../bll/reducers/registrationReducer';
-import { select } from '../../bll/select';
+import { selectReg } from '../../bll/select';
 import { validateRegistrLogin } from '../../utils/validateRegistrLogin';
 import { PATH } from '../PageRoutes/PageRoutes';
 
@@ -14,7 +14,7 @@ import styles from './Login.module.css';
 export const Login: React.FC = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { password, email, error } = useSelector(select);
+  const { password, email, error } = useSelector(selectReg);
   const { t } = useTranslation();
 
   redirect();

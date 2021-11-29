@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { redirect } from '../../bll/redirect';
 import { setEmailPassword } from '../../bll/reducers/registrationReducer';
-import { select } from '../../bll/select';
+import { selectReg } from '../../bll/select';
 import { validateRegistrLogin } from '../../utils/validateRegistrLogin';
 import { PATH } from '../PageRoutes/PageRoutes';
 import styles from './Registration.module.css';
@@ -14,7 +14,7 @@ export const Registration: React.FC = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { t } = useTranslation();
-  const { password, email } = useSelector(select);
+  const { password, email } = useSelector(selectReg);
 
   redirect();
 

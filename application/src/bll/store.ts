@@ -1,8 +1,14 @@
 import { applyMiddleware, combineReducers, createStore, compose } from 'redux';
 import thunkMiddleware from 'redux-thunk';
+import { basketReducer } from './reducers/basketReducer';
+import { carReducer } from './reducers/carReducer';
 import { registReducer } from './reducers/registrationReducer';
 
-const rootReducer = combineReducers({ registration: registReducer });
+const rootReducer = combineReducers({
+  registration: registReducer,
+  carReducer,
+  basketReducer
+});
 
 /* eslint-disable no-underscore-dangle */
 // @ts-ignore

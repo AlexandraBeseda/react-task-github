@@ -1,10 +1,19 @@
+import { CarPropTypes } from '../../pages/Car/Car';
+
 const basketState: Array<BasketPropTypes> = [];
 
 export type BasketPropTypes = {
   id: number;
   brand: string;
   model: string;
+  colour: string;
+  picture: string;
+  description: string;
   price: number;
+  length: number;
+  height: number;
+  width: number;
+  // plus
   amount: number;
   total: number;
 };
@@ -13,21 +22,19 @@ export const basketReducer = (
   action: ActionType
 ): typeof basketState => {
   switch (action.type) {
-    case 'SET-BASKET': {
+    case 'ADD-TO-BASKET': {
       return [
         {
-          id: action.id,
-          brand: action.brand,
-          model: action.model,
-          price: action.price,
-          amount: action.amount,
-          total: action.total
+          ...action.payload,
+          // plus
+          amount: 1,
+          total: action.payload.price
         },
         ...state
       ];
     }
     case 'ADD-AMOUNT': {
-      return state.map((c) => {
+      const stateCopy = state.map((c) => {
         if (c.id === action.id) {
           return {
             ...c,
@@ -37,23 +44,19 @@ export const basketReducer = (
         }
         return c;
       });
+      return stateCopy;
     }
     case 'DELETE-CAR': {
-      return state.filter((c) => c.id !== action.id);
+      const stateCopy = state.filter((c) => c.id !== action.id);
+      return stateCopy;
     }
     default:
       return state;
   }
 };
 
-export const setBasketAC = (
-  id: number,
-  brand: string,
-  model: string,
-  price: number,
-  amount: number,
-  total: number
-) => ({ type: 'SET-BASKET', id, brand, model, price, amount, total } as const);
+export const addToBasketAC = (payload: CarPropTypes) =>
+  ({ type: 'ADD-TO-BASKET', payload } as const);
 
 export const addAmountAC = (id: number, amount: number) =>
   ({ type: 'ADD-AMOUNT', id, amount } as const);
@@ -62,5 +65,5 @@ export const deleteCarAC = (id: number) =>
 // type
 export type ActionType =
   | ReturnType<typeof addAmountAC>
-  | ReturnType<typeof setBasketAC>
+  | ReturnType<typeof addToBasketAC>
   | ReturnType<typeof deleteCarAC>;

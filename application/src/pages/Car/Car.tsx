@@ -3,9 +3,8 @@ import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
 import { redirect } from '../../bll/redirect';
 import style from './Car.module.css';
-import cars from '../../data/database.json';
-import { addToCardAC } from '../../bll/reducers/carReducer';
-import { setBasketAC } from '../../bll/reducers/basketReducer';
+import { addToBasketAC } from '../../bll/reducers/basketReducer';
+import store from '../../bll/store';
 
 export type CarPropTypes = {
   id: number;
@@ -29,22 +28,34 @@ export const Car: React.FC<CarPropTypes> = ({
   height,
   width,
   description,
-  ...props
+  id
 }) => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
 
-  const addToCard = (carId: number) => {
-    const CAR = cars.find((car) => {
-      if (car.id === carId) return car;
+  const addToBasket = () => {
+    const EXIST_CAR = store.getState().basketReducer.filter((car) => {
+      if (car.id === id) return car;
     });
-    if (CAR) {
-      dispatch(addToCardAC(CAR));
+    if (EXIST_CAR.length < 1) {
       dispatch(
-        setBasketAC(CAR.id, CAR.brand, CAR.model, CAR.price, 1, CAR.price)
+        addToBasketAC({
+          id,
+          brand,
+          model,
+          colour,
+          picture,
+          description,
+          price,
+          length,
+          height,
+          width
+        })
       );
     }
+    // here i can add message,that you have added this car to the basket
   };
+
   redirect();
   return (
     <div className={style.car}>
@@ -65,11 +76,7 @@ export const Car: React.FC<CarPropTypes> = ({
         </p>
       </div>
       <div>
-        <button
-          className={style.addButton}
-          onClick={() => addToCard(props.id)}
-          type="button"
-        >
+        <button className={style.addButton} onClick={addToBasket} type="button">
           {t('common.button.addToCard')}
         </button>
       </div>

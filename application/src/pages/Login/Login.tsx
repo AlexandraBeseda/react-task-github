@@ -9,7 +9,7 @@ import { selectReg } from '../../bll/select';
 import { validateRegistrLogin } from '../../utils/validateRegistrLogin';
 import { PATH } from '../PageRoutes/PageRoutes';
 
-import styles from './Login.module.css';
+import style from './Login.module.css';
 
 export const Login: React.FC = () => {
   const dispatch = useDispatch();
@@ -26,8 +26,8 @@ export const Login: React.FC = () => {
   }, [password, email]);
 
   return (
-    <div className={styles.main}>
-      <div className={styles.table}>
+    <div className={style.main}>
+      <div className={style.table}>
         <h1>{t('header.links.login')}</h1>
         <Formik
           initialValues={{
@@ -58,7 +58,7 @@ export const Login: React.FC = () => {
                 onBlur={handleBlur}
                 value={values.email}
               />
-              <div className={styles.error}>
+              <div className={style.error}>
                 {errors.email &&
                   touched.email &&
                   t(`form.error.${errors.email}`)}
@@ -71,7 +71,7 @@ export const Login: React.FC = () => {
                 onBlur={handleBlur}
                 value={values.password}
               />
-              <div className={styles.error}>
+              <div className={style.error}>
                 {errors.password &&
                   touched.password &&
                   t(`form.error.${errors.password}`)}

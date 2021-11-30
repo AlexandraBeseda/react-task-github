@@ -60,9 +60,20 @@
       "russian": "Рус"
     }
   },
-  "card": {
+  "basket": {
     "amount": "Количество",
     "total": "Сумма",
-    "basketIsEmpty": "Ваша корзина пуста"
+    "basketIsEmpty": "Ваша корзина пуста",
+    "form": {
+      "email": "Электронная почта",
+      "surname": "Фамилия",
+      "name": "Имя",
+      "mobile": "Мобильный номер",
+      "error": {
+        "required": "Требуемый",
+        "invalidEmailAddress": "Недопустимое имя электронной почты",
+        "passwordLenght": "Длина должна быть более 5 элементов"
+      }
+    }
   }
 }

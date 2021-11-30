@@ -59,9 +59,20 @@
       "russian": "Ru"
     }
   },
-  "card": {
+  "basket": {
     "amount": "Amount",
     "total": "Total",
-    "basketIsEmpty": "Your basket is empty"
+    "basketIsEmpty": "Your basket is empty",
+    "form": {
+      "email": "Email",
+      "surname": "Surname",
+      "name": "Name",
+      "mobile": "Mobile phone",
+      "error": {
+        "required": "Required",
+        "invalidEmailAddress": "Invalid email address",
+        "passwordLenght": "Must be longer then 5 simbols"
+      }
+    }
   }
 }

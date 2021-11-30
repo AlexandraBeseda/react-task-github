@@ -23,10 +23,9 @@ export const NavBar: React.FC = () => {
     { id: v1(), pageName: 'cars', path: PATH.CARS },
     { id: v1(), pageName: 'basket', path: PATH.BASKET },
     { id: v1(), pageName: 'profile', path: PATH.PROFILE },
-    { id: v1(), pageName: 'login', path: PATH.LOGIN },
-    { id: v1(), pageName: 'registration', path: PATH.REGISTRATION },
     { id: v1(), pageName: 'error404', path: PATH.ERROR404 }
   ];
+
   const handleENG = () => {
     i18n.changeLanguage('en');
   };

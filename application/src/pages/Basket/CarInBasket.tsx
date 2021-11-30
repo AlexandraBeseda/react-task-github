@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useState } from 'react';
+import React, { ChangeEvent } from 'react';
 import { useDispatch } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashAlt } from '@fortawesome/free-regular-svg-icons';
@@ -11,12 +11,9 @@ import style from './Basket.module.css';
 
 export const CarInBasket: React.FC<BasketPropTypes> = ({ ...props }) => {
   const dispatch = useDispatch();
-  const [num, setNum] = useState(props.amount);
-  const [sum, setSum] = useState(props.total);
+
   const setNewAmount = (e: ChangeEvent<HTMLInputElement>) => {
     dispatch(addAmountAC(props.id, Number(e.currentTarget.value)));
-    setNum(Number(e.currentTarget.value));
-    setSum(Number(e.currentTarget.value) * props.price);
   };
 
   const deleteCar = () => {
@@ -30,12 +27,12 @@ export const CarInBasket: React.FC<BasketPropTypes> = ({ ...props }) => {
       <input
         min={1}
         max={5}
-        value={num}
+        value={props.amount}
         className={style.input}
         type="number"
         onChange={setNewAmount}
       />
-      <p className={style.totalPrice}>{`${sum} $`}</p>
+      <p className={style.totalPrice}>{`${props.total} $`}</p>
       <p className={`${style.basket} ${style.icon}`}>
         <FontAwesomeIcon icon={faTrashAlt} onClick={deleteCar} />
       </p>

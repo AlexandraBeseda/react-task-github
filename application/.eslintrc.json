@@ -22,6 +22,7 @@
         "@typescript-eslint"
     ],
     "rules": {
+      "function-paren-newline":"off",
       "no-debugger":"warn",
       "array-callback-return":"off",
       "consistent-return":"off",

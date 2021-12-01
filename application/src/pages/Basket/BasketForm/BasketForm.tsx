@@ -1,27 +1,59 @@
 import { Formik } from 'formik';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { useDispatch, useSelector } from 'react-redux';
+import { v1 } from 'uuid';
 import { validateBasket } from '../../../utils/validateBasket';
 import style from './BasketForm.module.css';
+import { setCustomerDataAC } from '../../../bll/reducers/cardReducer';
+import { AppStateType } from '../../../bll/store';
 
-export const BasketForm: React.FC = () => {
+type BasketFormPropTypes = {
+  totalBasketSum: number;
+};
+
+export const BasketForm: React.FC<BasketFormPropTypes> = ({
+  totalBasketSum,
+  ...props
+}) => {
   const { t } = useTranslation();
+  const dispatch = useDispatch();
+  const orderNum = useSelector<AppStateType, string>(
+    (state) => state.cardReducer.orderNum
+  );
   return (
     <div className={style.mainBlock}>
-      <h2>information for ordering</h2>
+      <h2>{t('basket.order.inf')}</h2>
       <div className={style.formBlock}>
-        <div>more information</div>
+        <div className={style.title}>
+          <p>{`${t('basket.order.totalAmount')} ${totalBasketSum} $`}</p>
+          <div>
+            {orderNum.length > 1 &&
+              `${t('basket.order.orderNum')} ${orderNum.slice(0, 5)}`}
+            <hr />
+            {orderNum.length > 1 && t('basket.order.orderProc')}
+          </div>
+        </div>
         <Formik
           initialValues={{
-            email: '',
             surname: '',
             name: '',
+            email: '',
             mobile: ''
           }}
           validate={(values) => validateBasket(values)}
           onSubmit={(values, { setSubmitting }) => {
             setSubmitting(false);
-            /* dispatch(checkEmailPassword(values.email, values.password)); */
+            dispatch(
+              setCustomerDataAC(
+                values.surname,
+                values.name,
+                values.email,
+                values.mobile,
+                v1(),
+                totalBasketSum
+              )
+            );
           }}
         >
           {({
@@ -31,9 +63,10 @@ export const BasketForm: React.FC = () => {
             handleChange,
             handleBlur,
             handleSubmit,
-            isSubmitting
+            isSubmitting,
+            handleReset
           }) => (
-            <form onSubmit={handleSubmit}>
+            <form className={style.formik} onSubmit={handleSubmit}>
               <input
                 placeholder={t('basket.form.surname')}
                 type="surname"

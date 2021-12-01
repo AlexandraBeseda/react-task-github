@@ -63,6 +63,7 @@
     "amount": "Amount",
     "total": "Total",
     "basketIsEmpty": "Your basket is empty",
+
     "form": {
       "email": "Email",
       "surname": "Surname",
@@ -73,6 +74,12 @@
         "invalidEmailAddress": "Invalid email address",
         "passwordLenght": "Must be longer then 5 simbols"
       }
+    },
+    "order": {
+      "inf": "Information about order:",
+      "totalAmount": "The total amount of the order",
+      "orderNum": "Your order num:",
+      "orderProc": "Your order has been processed"
     }
   }
 }

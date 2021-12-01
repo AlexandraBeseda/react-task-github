@@ -8,6 +8,7 @@ import { deleteEmailPassword } from '../../bll/reducers/registrationReducer';
 import { PATH } from '../PageRoutes/PageRoutes';
 import styles from './NavBar.module.css';
 import i18n from '../../utils/i18next';
+import { setCustomerDataAC } from '../../bll/reducers/cardReducer';
 
 export const NavBar: React.FC = () => {
   const dispatch = useDispatch();
@@ -16,6 +17,7 @@ export const NavBar: React.FC = () => {
 
   const deleteAccount = () => {
     dispatch(deleteEmailPassword());
+    dispatch(setCustomerDataAC('', '', '', '', '', 0));
     navigate(PATH.REGISTRATION);
   };
 

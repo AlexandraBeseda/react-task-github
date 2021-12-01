@@ -13,7 +13,7 @@ export const Basket: React.FC = () => {
   const basketReducer = useSelector<AppStateType, BasketPropTypes[]>(
     (state) => state.basketReducer
   );
-  redirect();
+
   if (basketReducer.length < 1) {
     return (
       <div className={style.mainBlock}>
@@ -21,6 +21,12 @@ export const Basket: React.FC = () => {
       </div>
     );
   }
+
+  let basketTotalSum = 0;
+  basketReducer.forEach((car) => {
+    basketTotalSum += car.total;
+  });
+  redirect();
   return (
     <div className={style.mainBlock}>
       <div className={style.card}>
@@ -48,7 +54,7 @@ export const Basket: React.FC = () => {
           total={car.total}
         />
       ))}
-      <BasketForm />
+      <BasketForm totalBasketSum={basketTotalSum} />
     </div>
   );
 };

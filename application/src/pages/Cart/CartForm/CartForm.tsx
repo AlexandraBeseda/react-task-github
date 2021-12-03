@@ -3,35 +3,35 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { v1 } from 'uuid';
-import { validateBasket } from '../../../utils/validateBasket';
-import style from './BasketForm.module.css';
-import { setCustomerDataAC } from '../../../bll/reducers/cardReducer';
+import style from './CartForm.module.css';
+import { setCustomerData } from '../../../bll/reducers/paymentCardReducer';
 import { AppStateType } from '../../../bll/store';
+import { validateCart } from '../../../utils/validate/validateCart';
 
-type BasketFormPropTypes = {
-  totalBasketSum: number;
+type CartFormPropTypes = {
+  totalCartSum: number;
 };
 
-export const BasketForm: React.FC<BasketFormPropTypes> = ({
-  totalBasketSum,
+export const CartForm: React.FC<CartFormPropTypes> = ({
+  totalCartSum,
   ...props
 }) => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
   const orderNum = useSelector<AppStateType, string>(
-    (state) => state.cardReducer.orderNum
+    (state) => state.paymentCardReducer.orderNum
   );
   return (
     <div className={style.mainBlock}>
-      <h2>{t('basket.order.inf')}</h2>
+      <h2>{t('cart.order.inf')}</h2>
       <div className={style.formBlock}>
         <div className={style.title}>
-          <p>{`${t('basket.order.totalAmount')} ${totalBasketSum} $`}</p>
+          <p>{`${t('cart.order.totalAmount')} ${totalCartSum} $`}</p>
           <div>
             {orderNum.length > 1 &&
-              `${t('basket.order.orderNum')} ${orderNum.slice(0, 5)}`}
+              `${t('cart.order.orderNum')} ${orderNum.slice(0, 5)}`}
             <hr />
-            {orderNum.length > 1 && t('basket.order.orderProc')}
+            {orderNum.length > 1 && t('cart.order.orderProc')}
           </div>
         </div>
         <Formik
@@ -41,17 +41,17 @@ export const BasketForm: React.FC<BasketFormPropTypes> = ({
             email: '',
             mobile: ''
           }}
-          validate={(values) => validateBasket(values)}
+          validate={(values) => validateCart(values)}
           onSubmit={(values, { setSubmitting }) => {
             setSubmitting(false);
             dispatch(
-              setCustomerDataAC(
+              setCustomerData(
                 values.surname,
                 values.name,
                 values.email,
                 values.mobile,
                 v1(),
-                totalBasketSum
+                totalCartSum
               )
             );
           }}
@@ -63,12 +63,11 @@ export const BasketForm: React.FC<BasketFormPropTypes> = ({
             handleChange,
             handleBlur,
             handleSubmit,
-            isSubmitting,
-            handleReset
+            isSubmitting
           }) => (
             <form className={style.formik} onSubmit={handleSubmit}>
               <input
-                placeholder={t('basket.form.surname')}
+                placeholder={t('cart.form.surname')}
                 type="surname"
                 name="surname"
                 onChange={handleChange}
@@ -78,10 +77,10 @@ export const BasketForm: React.FC<BasketFormPropTypes> = ({
               <div className={style.error}>
                 {errors.surname &&
                   touched.surname &&
-                  t(`basket.form.error.${errors.surname}`)}
+                  t(`cart.form.error.${errors.surname}`)}
               </div>
               <input
-                placeholder={t('basket.form.name')}
+                placeholder={t('cart.form.name')}
                 type="name"
                 name="name"
                 onChange={handleChange}
@@ -91,10 +90,10 @@ export const BasketForm: React.FC<BasketFormPropTypes> = ({
               <div className={style.error}>
                 {errors.name &&
                   touched.name &&
-                  t(`basket.form.error.${errors.name}`)}
+                  t(`cart.form.error.${errors.name}`)}
               </div>
               <input
-                placeholder={t('basket.form.email')}
+                placeholder={t('cart.form.email')}
                 type="email"
                 name="email"
                 onChange={handleChange}
@@ -104,10 +103,10 @@ export const BasketForm: React.FC<BasketFormPropTypes> = ({
               <div className={style.error}>
                 {errors.email &&
                   touched.email &&
-                  t(`basket.form.error.${errors.email}`)}
+                  t(`cart.form.error.${errors.email}`)}
               </div>
               <input
-                placeholder={t('basket.form.mobile')}
+                placeholder={t('cart.form.mobile')}
                 type="mobile"
                 name="mobile"
                 onChange={handleChange}
@@ -117,7 +116,7 @@ export const BasketForm: React.FC<BasketFormPropTypes> = ({
               <div className={style.error}>
                 {errors.mobile &&
                   touched.mobile &&
-                  t(`basket.form.error.${errors.mobile}`)}
+                  t(`cart.form.error.${errors.mobile}`)}
               </div>
               <div>
                 <button type="submit" disabled={isSubmitting}>

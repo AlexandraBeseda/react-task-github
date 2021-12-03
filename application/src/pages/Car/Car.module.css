@@ -1,11 +1,11 @@
 .car {
   display: flex;
   flex-direction: row;
-  width: 80%;
-  height: 30%;
-  background-color: rgb(244, 247, 248);
   justify-content: space-between;
   margin: 10px;
+  background-color: rgb(244, 247, 248);
+  width: 80%;
+  height: 30%;
 }
 
 .img {
@@ -15,16 +15,20 @@
 
 .description {
   display: flex;
-  margin: 10px;
   flex-direction: column;
   text-align: start;
+  margin: 10px;
 }
 
 .text {
   border-top: 1px solid slategray;
 }
 
-.addButton {
-  width: 150px;
+.addButton .message {
   justify-self: end;
+  width: 150px;
+}
+
+.message {
+  width: 150px;
 }

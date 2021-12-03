@@ -14,7 +14,7 @@ export const Cars: React.FC = () => {
           id={car.id}
           brand={car.brand}
           model={car.model}
-          colour={car.colour}
+          color={car.color}
           picture={car.picture}
           description={car.description}
           price={car.price}

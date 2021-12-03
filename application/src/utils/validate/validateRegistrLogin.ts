@@ -1,18 +1,16 @@
 import { FormikErrors } from 'formik';
+import { isEmailValid } from './isEmailValid';
 
 type FormValues = {
   email: string;
   password: string;
 };
-const VALIDATE_EMAIL = new RegExp(
-  '^[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,}$',
-  'i'
-);
+
 export const validateRegistrLogin = (values: FormValues) => {
   const errors: FormikErrors<FormValues> = {};
   if (!values.email) {
     errors.email = 'required';
-  } else if (!VALIDATE_EMAIL.test(values.email)) {
+  } else if (!isEmailValid(values.email)) {
     errors.email = 'invalidEmailAddress';
   }
   if (!values.password) {

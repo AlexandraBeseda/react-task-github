@@ -1,7 +1,7 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { Basket } from '../Basket/Basket';
 import { Cars } from '../Cars/Cars';
+import { Cart } from '../Cart/Cart';
 import { Error404 } from '../Error404/Error404';
 import { Login } from '../Login/Login';
 import { Profile } from '../Profile/Profile';
@@ -11,8 +11,8 @@ export const PATH = {
   REGISTRATION: '/regist',
   LOGIN: '/login',
   CARS: '/cars',
-  BASKET: '/basket',
   CART: '/cart',
+  PAY_CARD: '/paycard',
   PROFILE: '/profile',
   ERROR404: '*'
 };
@@ -22,7 +22,7 @@ export const PageRoutes: React.FC = () => (
     <Route path={PATH.REGISTRATION} element={<Registration />} />
     <Route path={PATH.LOGIN} element={<Login />} />
     <Route path={PATH.CARS} element={<Cars />} />
-    <Route path={PATH.BASKET} element={<Basket />} />
+    <Route path={PATH.CART} element={<Cart />} />
     <Route path={PATH.ERROR404} element={<Error404 />} />
   </Routes>
 );

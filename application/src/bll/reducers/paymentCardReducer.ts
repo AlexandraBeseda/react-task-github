@@ -1,4 +1,4 @@
-const cardState = {
+const defaultPaymentCardState = {
   surname: '',
   name: '',
   email: '',
@@ -7,7 +7,7 @@ const cardState = {
   total: 0
 };
 
-export type CardPropTypes = {
+export type PaymentCardPropTypes = {
   surname: string;
   name: string;
   email: string;
@@ -15,10 +15,10 @@ export type CardPropTypes = {
   orderNum: string;
   total: number;
 };
-export const cardReducer = (
-  state: typeof cardState = cardState,
+export const paymentCardReducer = (
+  state: typeof defaultPaymentCardState = defaultPaymentCardState,
   action: ActionType
-): typeof cardState => {
+): typeof defaultPaymentCardState => {
   switch (action.type) {
     case 'SET-CUSTOMER-DATA': {
       return {
@@ -36,7 +36,7 @@ export const cardReducer = (
   }
 };
 
-export const setCustomerDataAC = (
+export const setCustomerData = (
   surname: string,
   name: string,
   email: string,
@@ -54,5 +54,4 @@ export const setCustomerDataAC = (
     total
   } as const);
 
-// type
-export type ActionType = ReturnType<typeof setCustomerDataAC>;
+export type ActionType = ReturnType<typeof setCustomerData>;

@@ -2,9 +2,8 @@
   "header": {
     "links": {
       "cars": "Cars",
-      "card": "Card",
-      "basket": "Basket",
-
+      "cart": "Cart",
+      "paymentCard": "Payment Card",
       "login": "Login",
       "profile": "Profile",
       "registration": "Registration",
@@ -26,14 +25,14 @@
     "param": {
       "model": "Model",
       "price": "Price",
-      "colour": "Colour",
+      "color": "Color",
       "length": "Lenght",
       "width": "Width",
       "height": "Height",
       "description": "Description"
     },
     "property": {
-      "colour": {
+      "color": {
         "blackSapphire": "Black Sapphire",
         "grayMetallic": "Gray Metallic",
         "nightfallMica": "Nightfall Mica",
@@ -51,7 +50,7 @@
     "button": {
       "submit": "Submit",
       "deleteAccount": "Delete Account",
-      "addToCard": "Add to card",
+      "addToCart": "Add to cart",
       "delete": "Delete"
     },
     "language": {
@@ -59,11 +58,10 @@
       "russian": "Ru"
     }
   },
-  "basket": {
+  "cart": {
     "amount": "Amount",
     "total": "Total",
-    "basketIsEmpty": "Your basket is empty",
-
+    "cartIsEmpty": "Your shopping cart is empty",
     "form": {
       "email": "Email",
       "surname": "Surname",
@@ -72,7 +70,7 @@
       "error": {
         "required": "Required",
         "invalidEmailAddress": "Invalid email address",
-        "passwordLenght": "Must be longer then 5 simbols"
+        "passwordLenght": "Must be longer then 5 symbols"
       }
     },
     "order": {
@@ -81,5 +79,9 @@
       "orderNum": "Your order num:",
       "orderProc": "Your order has been processed"
     }
+  },
+  "messages": {
+    "addedCarToCart": "You have already added this car.",
+    "startShopping": "Start shopping"
   }
 }

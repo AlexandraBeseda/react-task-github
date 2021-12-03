@@ -1,16 +1,16 @@
 import { Dispatch } from 'redux';
 
-const initRegState = {
+const defaultRegistrationState = {
   email: '',
   password: '',
   isLoading: false,
   error: ''
 };
 
-export const registReducer = (
-  state: typeof initRegState = initRegState,
+export const registrationReducer = (
+  state: typeof defaultRegistrationState = defaultRegistrationState,
   action: ActionType
-): typeof initRegState => {
+): typeof defaultRegistrationState => {
   switch (action.type) {
     case 'REGISTER-SET-EMAIL':
       return { ...state, email: action.email };
@@ -20,13 +20,11 @@ export const registReducer = (
       return { ...state, isLoading: action.isLoading };
     case 'REGISTER-SET-ERROR':
       return { ...state, error: action.error };
-
     default:
       return state;
   }
 };
 
-// actions
 export const setEmail = (email: string) =>
   ({ type: 'REGISTER-SET-EMAIL', email } as const);
 export const setPassword = (password: string) =>
@@ -35,16 +33,14 @@ export const setLoading = (isLoading: boolean) =>
   ({ type: 'REGISTER-SET-LOADING', isLoading } as const);
 export const setError = (error: string) =>
   ({ type: 'REGISTER-SET-ERROR', error } as const);
-// type
+
 export type ActionType =
   | ReturnType<typeof setEmail>
   | ReturnType<typeof setPassword>
   | ReturnType<typeof setLoading>
   | ReturnType<typeof setError>;
 
-// thunk
-// registration
-export const setEmailPassword =
+export const setRegistration =
   (email: string, password: string) => (dispatch: Dispatch) => {
     localStorage.setItem('email', email);
     localStorage.setItem('password', password);
@@ -52,8 +48,7 @@ export const setEmailPassword =
     dispatch(setPassword(password));
   };
 
-// login
-export const checkEmailPassword =
+export const checkLogin =
   (email: string, password: string) => (dispatch: Dispatch) => {
     const passwordLocal = localStorage.getItem('password');
     const emailLocal = localStorage.getItem('email');
@@ -70,8 +65,7 @@ export const checkEmailPassword =
     }
   };
 
-// delete account
-export const deleteEmailPassword = () => (dispatch: Dispatch) => {
+export const deleteAccount = () => (dispatch: Dispatch) => {
   localStorage.clear();
   dispatch(setEmail(''));
   dispatch(setPassword(''));

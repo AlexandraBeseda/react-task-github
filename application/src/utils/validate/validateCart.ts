@@ -1,4 +1,5 @@
 import { FormikErrors } from 'formik';
+import { isEmailValid } from './isEmailValid';
 
 type FormValues = {
   email: string;
@@ -6,22 +7,17 @@ type FormValues = {
   name: string;
   mobile: string;
 };
-const VALIDATE_EMAIL = new RegExp(
-  '^[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,}$',
-  'i'
-);
-export const validateBasket = (values: FormValues) => {
+
+export const validateCart = (values: FormValues) => {
   const errors: FormikErrors<FormValues> = {};
   if (!values.email) {
     errors.email = 'required';
-  } else if (!VALIDATE_EMAIL.test(values.email)) {
+  } else if (!isEmailValid(values.email)) {
     errors.email = 'invalidEmailAddress';
   }
   if (!values.surname) {
     errors.surname = 'required';
-  } /* else if (values.password.length < 5) {
-    errors.password = 'passwordLenght';
-  } */
+  }
   if (!values.name) {
     errors.name = 'required';
   }

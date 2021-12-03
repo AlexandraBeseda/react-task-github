@@ -1,3 +1,4 @@
 import { AppStateType } from './store';
 
-export const selectReg = (state: AppStateType) => state.registration;
+export const selectRegistration = (state: AppStateType) =>
+  state.registrationReducer;

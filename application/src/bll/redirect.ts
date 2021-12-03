@@ -14,8 +14,8 @@ export const redirect = () => {
   useEffect(() => {
     password = localStorage.getItem('password');
     email = localStorage.getItem('email');
-    passwordRegistrReducer = store.getState().registration.password;
-    emailRegistrReducer = store.getState().registration.email;
+    passwordRegistrReducer = store.getState().registrationReducer.password;
+    emailRegistrReducer = store.getState().registrationReducer.email;
 
     const isUserREgistered = passwordRegistrReducer && emailRegistrReducer;
     const isUserAuthorized = password && email;

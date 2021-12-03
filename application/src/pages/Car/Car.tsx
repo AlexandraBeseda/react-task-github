@@ -1,16 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
 import { redirect } from '../../bll/redirect';
 import style from './Car.module.css';
-import { addToBasketAC } from '../../bll/reducers/basketReducer';
+import { addToCart } from '../../bll/reducers/cartReducer';
 import store from '../../bll/store';
 
 export type CarPropTypes = {
   id: number;
   brand: string;
   model: string;
-  colour: string;
+  color: string;
   picture: string;
   description: string;
   price: number;
@@ -23,7 +23,7 @@ export const Car: React.FC<CarPropTypes> = ({
   brand,
   model,
   price,
-  colour,
+  color,
   length,
   height,
   width,
@@ -32,18 +32,19 @@ export const Car: React.FC<CarPropTypes> = ({
 }) => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
+  const [message, setMessage] = useState('');
 
-  const addToBasket = () => {
-    const EXIST_CAR = store.getState().basketReducer.filter((car) => {
+  const handleAddToCart = () => {
+    const existingCar = store.getState().cartReducer.filter((car) => {
       if (car.id === id) return car;
     });
-    if (EXIST_CAR.length < 1) {
+    if (existingCar.length < 1) {
       dispatch(
-        addToBasketAC({
+        addToCart({
           id,
           brand,
           model,
-          colour,
+          color,
           picture,
           description,
           price,
@@ -52,8 +53,9 @@ export const Car: React.FC<CarPropTypes> = ({
           width
         })
       );
+    } else {
+      setMessage(t('messages.addedCarToCart'));
     }
-    // here i can add message,that you have added this car to the basket
   };
 
   redirect();
@@ -63,9 +65,7 @@ export const Car: React.FC<CarPropTypes> = ({
       <div className={style.description}>
         <h2>{`${t('car.param.model')}: ${brand} ${model}`}</h2>
         <h3>{`${t('car.param.price')}: ${price}$`}</h3>
-        <p>
-          {`${t('car.param.price')}: ${t(`car.property.colour.${colour}`)}`}
-        </p>
+        <p>{`${t('car.param.color')}: ${t(`car.property.color.${color}`)}`}</p>
         <p>
           {`${t('car.param.length')} x ${t('car.param.width')} x ${t(
             'car.param.height'
@@ -76,9 +76,14 @@ export const Car: React.FC<CarPropTypes> = ({
         </p>
       </div>
       <div>
-        <button className={style.addButton} onClick={addToBasket} type="button">
-          {t('common.button.addToCard')}
+        <button
+          className={style.addButton}
+          onClick={handleAddToCart}
+          type="button"
+        >
+          {t('common.button.addToCart')}
         </button>
+        <div className={style.message}>{message}</div>
       </div>
     </div>
   );

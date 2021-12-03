@@ -4,9 +4,9 @@ import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { redirect } from '../../bll/redirect';
-import { setEmailPassword } from '../../bll/reducers/registrationReducer';
-import { selectReg } from '../../bll/select';
-import { validateRegistrLogin } from '../../utils/validateRegistrLogin';
+import { setRegistration } from '../../bll/reducers/registrationReducer';
+import { selectRegistration } from '../../bll/select';
+import { validateRegistrLogin } from '../../utils/validate/validateRegistrLogin';
 import { PATH } from '../PageRoutes/PageRoutes';
 import style from './Registration.module.css';
 
@@ -14,7 +14,7 @@ export const Registration: React.FC = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { t } = useTranslation();
-  const { password, email } = useSelector(selectReg);
+  const { password, email } = useSelector(selectRegistration);
 
   redirect();
 
@@ -36,7 +36,7 @@ export const Registration: React.FC = () => {
           validate={(values) => validateRegistrLogin(values)}
           onSubmit={(values, { setSubmitting }) => {
             setSubmitting(false);
-            dispatch(setEmailPassword(values.email, values.password));
+            dispatch(setRegistration(values.email, values.password));
           }}
         >
           {({

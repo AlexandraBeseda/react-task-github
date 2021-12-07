@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { redirect } from '../../bll/redirect';
@@ -20,13 +21,13 @@ export const Cart: React.FC = () => {
   const orderNum = useSelector<AppStateType, string>(
     (state) => state.paymentCardReducer.orderNum
   );
-
   redirect();
 
   let cartTotalSum = 0;
   cartReducer.forEach((car) => {
     cartTotalSum += car.total;
   });
+
   const totalCarPrice = Math.floor(cartTotalSum * 100) / 100;
 
   if (cartReducer.length < 1) {

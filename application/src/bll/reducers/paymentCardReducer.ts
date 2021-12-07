@@ -80,5 +80,4 @@ export const saveDataOrders = (
     }
   }
 };
-
 export type ActionType = ReturnType<typeof setCustomerData>;

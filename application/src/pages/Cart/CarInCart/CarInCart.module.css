@@ -1,0 +1,46 @@
+.card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: 1px solid black;
+  width: 80%;
+  height: 30%;
+  background-color: rgb(244, 247, 248);
+  margin: 10px;
+  padding: 10px;
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+  margin: 10px;
+}
+.carName {
+  width: 500px;
+  text-align: start;
+}
+.carPrice {
+  text-align: center;
+  width: 300px;
+}
+.totalPrice {
+  text-align: center;
+  width: 200px;
+}
+
+.input {
+  text-align: center;
+  width: 100px;
+}
+.deleteButton {
+  text-align: end;
+}
+.icon {
+  color: black;
+  font-size: 24px;
+  transition: color 0.2s ease-in-out;
+}
+.icon:hover {
+  color: red;
+}

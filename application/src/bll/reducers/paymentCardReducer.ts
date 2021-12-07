@@ -28,7 +28,7 @@ export const paymentCardReducer = (
         email: action.email,
         mobile: action.mobile,
         orderNum: action.orderNum,
-        total: action.total
+        total: Math.floor(action.total * 100) / 100
       };
     }
     default:
@@ -53,5 +53,32 @@ export const setCustomerData = (
     orderNum,
     total
   } as const);
+
+export const saveDataOrders = (
+  orderId: string,
+  surname: string,
+  name: string,
+  mobile: string,
+  totalCartSum: number
+) => {
+  const email = localStorage.getItem('email');
+  const time = new Date();
+  const day = time.getUTCDate();
+  const month = time.getMonth() + 1;
+  const year = time.getFullYear();
+  const date = `${day}.${month}.${year}`;
+  const newData = { orderId, surname, name, mobile, totalCartSum, date };
+  if (email) {
+    let allData = [];
+    const oldData = localStorage.getItem(email);
+    if (oldData) {
+      allData = JSON.parse(oldData);
+      allData.push(newData);
+      localStorage.setItem(email, JSON.stringify(allData));
+    } else {
+      localStorage.setItem(email, JSON.stringify([newData]));
+    }
+  }
+};
 
 export type ActionType = ReturnType<typeof setCustomerData>;

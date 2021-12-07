@@ -6,8 +6,8 @@ import {
   CartPropTypes,
   addAmount,
   deleteCar
-} from '../../bll/reducers/cartReducer';
-import style from './Cart.module.css';
+} from '../../../bll/reducers/cartReducer';
+import style from './CarInCart.module.css';
 
 export const CarInCart: React.FC<CartPropTypes> = ({ ...props }) => {
   const dispatch = useDispatch();
@@ -19,7 +19,7 @@ export const CarInCart: React.FC<CartPropTypes> = ({ ...props }) => {
   const handleDeleteCar = () => {
     dispatch(deleteCar(props.id));
   };
-
+  const total = Math.floor(props.total * 100) / 100;
   return (
     <div className={style.card}>
       <p className={style.carName}>{`${props.brand} ${props.model}`}</p>
@@ -32,7 +32,7 @@ export const CarInCart: React.FC<CartPropTypes> = ({ ...props }) => {
         type="number"
         onChange={setNewAmount}
       />
-      <p className={style.totalPrice}>{`${props.total} $`}</p>
+      <p className={style.totalPrice}>{`${total} $`}</p>
       <p className={`${style.cart} ${style.icon}`}>
         <FontAwesomeIcon icon={faTrashAlt} onClick={handleDeleteCar} />
       </p>

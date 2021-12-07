@@ -38,7 +38,7 @@ export const cartReducer = (
           return {
             ...car,
             amount: action.amount,
-            total: action.amount * car.price
+            total: (action.amount * Math.floor(car.price * 100)) / 100
           };
         }
         return car;

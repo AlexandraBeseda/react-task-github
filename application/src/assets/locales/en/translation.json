@@ -75,13 +75,22 @@
     },
     "order": {
       "inf": "Information about order:",
-      "totalAmount": "The total amount of the order",
+      "totalAmount": "The total amount of the order:",
       "orderNum": "Your order num:",
-      "orderProc": "Your order has been processed"
+      "orderProc": "Your order has been processed",
+      "history": {
+        "orderId": "Order number",
+        "user": "Customer",
+        "mobile": "Mobile phone",
+        "total": "Total",
+        "date": "Order date"
+      }
     }
   },
   "messages": {
     "addedCarToCart": "You have already added this car.",
-    "startShopping": "Start shopping"
+    "startShopping": "Start shopping",
+    "orderHistory": "View order history",
+    "orderHistoryIsEmpty": "Order history is empty"
   }
 }

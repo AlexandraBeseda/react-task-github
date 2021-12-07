@@ -66,7 +66,8 @@ export const checkLogin =
   };
 
 export const deleteAccount = () => (dispatch: Dispatch) => {
-  localStorage.clear();
+  localStorage.removeItem('email');
+  localStorage.removeItem('password');
   dispatch(setEmail(''));
   dispatch(setPassword(''));
 };

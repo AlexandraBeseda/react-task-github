@@ -4,29 +4,30 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import { v1 } from 'uuid';
 import { useTranslation } from 'react-i18next';
 import { redirect } from '../../bll/redirect';
-import { deleteEmailPassword } from '../../bll/reducers/registrationReducer';
 import { PATH } from '../PageRoutes/PageRoutes';
 import styles from './NavBar.module.css';
 import i18n from '../../utils/i18next';
+import { setCustomerData } from '../../bll/reducers/paymentCardReducer';
+import { deleteAccount } from '../../bll/reducers/registrationReducer';
 
 export const NavBar: React.FC = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { t } = useTranslation();
 
-  const deleteAccount = () => {
-    dispatch(deleteEmailPassword());
+  const handlerDeleteAccount = () => {
+    dispatch(deleteAccount());
+    dispatch(setCustomerData('', '', '', '', '', 0));
     navigate(PATH.REGISTRATION);
   };
 
   const NAV_BAR_ARRAY = [
     { id: v1(), pageName: 'cars', path: PATH.CARS },
-    { id: v1(), pageName: 'card', path: PATH.CARD },
+    { id: v1(), pageName: 'cart', path: PATH.CART },
     { id: v1(), pageName: 'profile', path: PATH.PROFILE },
-    { id: v1(), pageName: 'login', path: PATH.LOGIN },
-    { id: v1(), pageName: 'registration', path: PATH.REGISTRATION },
     { id: v1(), pageName: 'error404', path: PATH.ERROR404 }
   ];
+
   const handleENG = () => {
     i18n.changeLanguage('en');
   };
@@ -57,7 +58,11 @@ export const NavBar: React.FC = () => {
           </li>
         ))}
       </ul>
-      <button className={styles.button} type="button" onClick={deleteAccount}>
+      <button
+        className={styles.button}
+        type="button"
+        onClick={handlerDeleteAccount}
+      >
         {t('common.button.deleteAccount')}
       </button>
     </nav>

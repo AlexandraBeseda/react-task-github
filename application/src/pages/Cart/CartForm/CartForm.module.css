@@ -1,0 +1,24 @@
+.mainBlock {
+  width: 80%;
+}
+.formBlock {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.title {
+  width: 300px;
+}
+
+.formik {
+  width: 300px;
+}
+.error {
+  height: 30px;
+}
+
+input {
+  width: 100%;
+}

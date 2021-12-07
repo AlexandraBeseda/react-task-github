@@ -1,8 +1,9 @@
 {
   "header": {
     "links": {
-      "cars": "Автомобиль",
-      "card": "Платежная карта",
+      "cars": "Автомобили",
+      "cart": "Корзина",
+      "paymentCard": "Платежная карта",
       "login": "Логин",
       "profile": "Профиль",
       "registration": "Регистрация",
@@ -25,14 +26,14 @@
     "param": {
       "model": "Модель",
       "price": "Цена",
-      "colour": "Цвет",
+      "color": "Цвет",
       "length": "Длина",
       "width": "Ширина",
       "height": "Высота",
       "description": "Описание"
     },
     "property": {
-      "colour": {
+      "color": {
         "blackSapphire": "Черный сапфир",
         "grayMetallic": "Серый металлик",
         "nightfallMica": "Сумрачная слюда",
@@ -49,11 +50,39 @@
   "common": {
     "button": {
       "submit": "Подтвердить",
-      "deleteAccount": "Удалить аккаунт"
+      "deleteAccount": "Удалить аккаунт",
+      "addToCart": "Добавить в корзину",
+      "delete": "Удалить"
     },
     "language": {
       "english": "Англ",
       "russian": "Рус"
     }
+  },
+  "cart": {
+    "amount": "Количество",
+    "total": "Сумма",
+    "cartIsEmpty": "Ваша корзина пуста",
+    "form": {
+      "email": "Электронная почта",
+      "surname": "Фамилия",
+      "name": "Имя",
+      "mobile": "Мобильный номер",
+      "error": {
+        "required": "Требуемый",
+        "invalidEmailAddress": "Недопустимое имя электронной почты",
+        "passwordLenght": "Длина должна быть более 5 элементов"
+      }
+    },
+    "order": {
+      "inf": "Информация о заказе:",
+      "totalAmount": "Общая сумма заказа",
+      "orderNum": "Номер заказа:",
+      "orderProc": "Ваш заказ обрабатывается"
+    }
+  },
+  "messages": {
+    "addedCarToCart": "Вы уже добавили данную модель в корзину",
+    "startShopping": "Начать покупки"
   }
 }

@@ -2,7 +2,8 @@
   "header": {
     "links": {
       "cars": "Cars",
-      "card": "Card",
+      "cart": "Cart",
+      "paymentCard": "Payment Card",
       "login": "Login",
       "profile": "Profile",
       "registration": "Registration",
@@ -24,14 +25,14 @@
     "param": {
       "model": "Model",
       "price": "Price",
-      "colour": "Colour",
+      "color": "Color",
       "length": "Lenght",
       "width": "Width",
       "height": "Height",
       "description": "Description"
     },
     "property": {
-      "colour": {
+      "color": {
         "blackSapphire": "Black Sapphire",
         "grayMetallic": "Gray Metallic",
         "nightfallMica": "Nightfall Mica",
@@ -48,11 +49,39 @@
   "common": {
     "button": {
       "submit": "Submit",
-      "deleteAccount": "Delete Account"
+      "deleteAccount": "Delete Account",
+      "addToCart": "Add to cart",
+      "delete": "Delete"
     },
     "language": {
       "english": "En",
       "russian": "Ru"
     }
+  },
+  "cart": {
+    "amount": "Amount",
+    "total": "Total",
+    "cartIsEmpty": "Your shopping cart is empty",
+    "form": {
+      "email": "Email",
+      "surname": "Surname",
+      "name": "Name",
+      "mobile": "Mobile phone",
+      "error": {
+        "required": "Required",
+        "invalidEmailAddress": "Invalid email address",
+        "passwordLenght": "Must be longer then 5 symbols"
+      }
+    },
+    "order": {
+      "inf": "Information about order:",
+      "totalAmount": "The total amount of the order",
+      "orderNum": "Your order num:",
+      "orderProc": "Your order has been processed"
+    }
+  },
+  "messages": {
+    "addedCarToCart": "You have already added this car.",
+    "startShopping": "Start shopping"
   }
 }

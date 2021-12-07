@@ -4,17 +4,17 @@ import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { redirect } from '../../bll/redirect';
-import { setEmailPassword } from '../../bll/reducers/registrationReducer';
-import { select } from '../../bll/select';
-import { validateRegistrLogin } from '../../utils/validateRegistrLogin';
+import { setRegistration } from '../../bll/reducers/registrationReducer';
+import { selectRegistration } from '../../bll/select';
+import { validateRegistrLogin } from '../../utils/validate/validateRegistrLogin';
 import { PATH } from '../PageRoutes/PageRoutes';
-import styles from './Registration.module.css';
+import style from './Registration.module.css';
 
 export const Registration: React.FC = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { t } = useTranslation();
-  const { password, email } = useSelector(select);
+  const { password, email } = useSelector(selectRegistration);
 
   redirect();
 
@@ -25,8 +25,8 @@ export const Registration: React.FC = () => {
   }, [password, email]);
 
   return (
-    <div className={styles.main}>
-      <div className={styles.table}>
+    <div className={style.main}>
+      <div className={style.table}>
         <h1>{t('header.links.registration')}</h1>
         <Formik
           initialValues={{
@@ -36,7 +36,7 @@ export const Registration: React.FC = () => {
           validate={(values) => validateRegistrLogin(values)}
           onSubmit={(values, { setSubmitting }) => {
             setSubmitting(false);
-            dispatch(setEmailPassword(values.email, values.password));
+            dispatch(setRegistration(values.email, values.password));
           }}
         >
           {({
@@ -57,7 +57,7 @@ export const Registration: React.FC = () => {
                 onBlur={handleBlur}
                 value={values.email}
               />
-              <div className={styles.error}>
+              <div className={style.error}>
                 {errors.email &&
                   touched.email &&
                   t(`form.error.${errors.email}`)}
@@ -70,7 +70,7 @@ export const Registration: React.FC = () => {
                 onBlur={handleBlur}
                 value={values.password}
               />
-              <div className={styles.error}>
+              <div className={style.error}>
                 {errors.password &&
                   touched.password &&
                   t(`form.error.${errors.password}`)}

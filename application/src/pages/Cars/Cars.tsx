@@ -7,14 +7,14 @@ import style from './Cars.module.css';
 export const Cars: React.FC = () => {
   redirect();
   return (
-    <div className={style.main}>
+    <div className={style.mainBlock}>
       {cars.map((car) => (
         <Car
           key={car.id}
           id={car.id}
           brand={car.brand}
           model={car.model}
-          colour={car.colour}
+          color={car.color}
           picture={car.picture}
           description={car.description}
           price={car.price}

@@ -4,17 +4,17 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { redirect } from '../../bll/redirect';
-import { checkEmailPassword } from '../../bll/reducers/registrationReducer';
-import { select } from '../../bll/select';
-import { validateRegistrLogin } from '../../utils/validateRegistrLogin';
 import { PATH } from '../PageRoutes/PageRoutes';
 
-import styles from './Login.module.css';
+import style from './Login.module.css';
+import { checkLogin } from '../../bll/reducers/registrationReducer';
+import { selectRegistration } from '../../bll/select';
+import { validateRegistrLogin } from '../../utils/validate/validateRegistrLogin';
 
 export const Login: React.FC = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { password, email, error } = useSelector(select);
+  const { password, email, error } = useSelector(selectRegistration);
   const { t } = useTranslation();
 
   redirect();
@@ -26,8 +26,8 @@ export const Login: React.FC = () => {
   }, [password, email]);
 
   return (
-    <div className={styles.main}>
-      <div className={styles.table}>
+    <div className={style.main}>
+      <div className={style.table}>
         <h1>{t('header.links.login')}</h1>
         <Formik
           initialValues={{
@@ -37,7 +37,7 @@ export const Login: React.FC = () => {
           validate={(values) => validateRegistrLogin(values)}
           onSubmit={(values, { setSubmitting }) => {
             setSubmitting(false);
-            dispatch(checkEmailPassword(values.email, values.password));
+            dispatch(checkLogin(values.email, values.password));
           }}
         >
           {({
@@ -58,7 +58,7 @@ export const Login: React.FC = () => {
                 onBlur={handleBlur}
                 value={values.email}
               />
-              <div className={styles.error}>
+              <div className={style.error}>
                 {errors.email &&
                   touched.email &&
                   t(`form.error.${errors.email}`)}
@@ -71,7 +71,7 @@ export const Login: React.FC = () => {
                 onBlur={handleBlur}
                 value={values.password}
               />
-              <div className={styles.error}>
+              <div className={style.error}>
                 {errors.password &&
                   touched.password &&
                   t(`form.error.${errors.password}`)}

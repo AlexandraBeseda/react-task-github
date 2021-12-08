@@ -21,13 +21,13 @@ export const Cart: React.FC = () => {
   const orderNum = useSelector<AppStateType, string>(
     (state) => state.paymentCardReducer.orderNum
   );
-
   redirect();
 
   let cartTotalSum = 0;
   cartReducer.forEach((car) => {
     cartTotalSum += car.total;
   });
+
   const totalCarPrice = formatTotalAmount(cartTotalSum);
   const isCartEmpty = cartReducer.length < 1;
   if (isCartEmpty) {

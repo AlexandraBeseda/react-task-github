@@ -49,6 +49,9 @@ export const cartReducer = (
       const stateCopy = state.filter((c) => c.id !== action.id);
       return stateCopy;
     }
+    case 'CLEAN-CART': {
+      return [];
+    }
     default:
       return state;
   }
@@ -59,8 +62,10 @@ export const addToCart = (payload: CarPropTypes) =>
 export const addAmount = (id: number, amount: number) =>
   ({ type: 'ADD-AMOUNT', id, amount } as const);
 export const deleteCar = (id: number) => ({ type: 'DELETE-CAR', id } as const);
+export const cleanCart = () => ({ type: 'CLEAN-CART' } as const);
 
 export type ActionType =
   | ReturnType<typeof addAmount>
   | ReturnType<typeof addToCart>
-  | ReturnType<typeof deleteCar>;
+  | ReturnType<typeof deleteCar>
+  | ReturnType<typeof cleanCart>;

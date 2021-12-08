@@ -14,10 +14,9 @@ export const CartFormHeader: React.FC<CartFormPropTypes> = ({
     <div className={style.title}>
       <p>{`${t('cart.order.totalAmount')} ${total} $`}</p>
       <div>
-        {orderNum.length > 1 &&
-          `${t('cart.order.orderNum')} ${orderNum.slice(0, 5)}`}
+        {orderNum && `${t('cart.order.orderNum')} ${orderNum.slice(0, 5)}`}
       </div>
-      <div>{orderNum.length > 1 && t('cart.order.orderProc')}</div>
+      <div>{orderNum && t('cart.order.orderProc')}</div>
 
       <h4>
         <NavLink className={style.link} to={PATH.ORDERS_HISTORY}>

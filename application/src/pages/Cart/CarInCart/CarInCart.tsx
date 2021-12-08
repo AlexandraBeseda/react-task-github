@@ -8,6 +8,7 @@ import {
   deleteCar
 } from '../../../bll/reducers/cartReducer';
 import style from './CarInCart.module.css';
+import { formatTotalAmount } from '../../../utils/formatTotalAmount';
 
 export const CarInCart: React.FC<CartPropTypes> = ({ ...props }) => {
   const dispatch = useDispatch();
@@ -19,7 +20,7 @@ export const CarInCart: React.FC<CartPropTypes> = ({ ...props }) => {
   const handleDeleteCar = () => {
     dispatch(deleteCar(props.id));
   };
-  const total = Math.floor(props.total * 100) / 100;
+  const total = formatTotalAmount(props.total);
   return (
     <div className={style.card}>
       <p className={style.carName}>{`${props.brand} ${props.model}`}</p>

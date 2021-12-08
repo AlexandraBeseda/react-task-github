@@ -26,7 +26,6 @@ export const PageRoutes: React.FC = () => (
     <Route path={PATH.CARS} element={<Cars />} />
     <Route path={PATH.CART} element={<Cart />} />
     <Route path={PATH.ORDERS_HISTORY} element={<OrdersHistory />} />
-
     <Route path={PATH.ERROR404} element={<Error404 />} />
   </Routes>
 );

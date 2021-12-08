@@ -9,6 +9,7 @@ import styles from './NavBar.module.css';
 import i18n from '../../utils/i18next';
 import { setCustomerData } from '../../bll/reducers/paymentCardReducer';
 import { deleteAccount } from '../../bll/reducers/registrationReducer';
+import { cleanCart } from '../../bll/reducers/cartReducer';
 
 export const NavBar: React.FC = () => {
   const dispatch = useDispatch();
@@ -18,6 +19,7 @@ export const NavBar: React.FC = () => {
   const handlerDeleteAccount = () => {
     dispatch(deleteAccount());
     dispatch(setCustomerData('', '', '', '', '', 0));
+    dispatch(cleanCart());
     navigate(PATH.REGISTRATION);
   };
 

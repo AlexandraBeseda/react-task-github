@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { redirect } from '../../bll/redirect';
 import { CartPropTypes } from '../../bll/reducers/cartReducer';
 import { AppStateType } from '../../bll/store';
+import { formatTotalAmount } from '../../utils/formatTotalAmount';
 import { CarInCart } from './CarInCart/CarInCart';
 import style from './Cart.module.css';
 import { CartForm } from './CartForm/CartForm';
@@ -27,12 +28,14 @@ export const Cart: React.FC = () => {
   cartReducer.forEach((car) => {
     cartTotalSum += car.total;
   });
-  const totalCarPrice = Math.floor(cartTotalSum * 100) / 100;
-
-  if (cartReducer.length < 1) {
+  const totalCarPrice = formatTotalAmount(cartTotalSum);
+  const isCartEmpty = cartReducer.length < 1;
+  if (isCartEmpty) {
     return <EmptyCart />;
   }
-  if (cartReducer.length > 0 && paymentCarDReducerTotal > 0) {
+  const isCartFull = cartReducer.length > 0;
+  const isPaymentCardFull = paymentCarDReducerTotal > 0;
+  if (isCartFull && isPaymentCardFull) {
     return <CartFormHeader total={totalCarPrice} orderNum={orderNum} />;
   }
   return (

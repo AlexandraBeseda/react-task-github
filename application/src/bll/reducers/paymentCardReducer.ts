@@ -1,3 +1,5 @@
+import { getDate } from '../../utils/getDate';
+
 const defaultPaymentCardState = {
   surname: '',
   name: '',
@@ -62,11 +64,7 @@ export const saveDataOrders = (
   totalCartSum: number
 ) => {
   const email = localStorage.getItem('email');
-  const time = new Date();
-  const day = time.getUTCDate();
-  const month = time.getMonth() + 1;
-  const year = time.getFullYear();
-  const date = `${day}.${month}.${year}`;
+  const date = getDate();
   const newData = { orderId, surname, name, mobile, totalCartSum, date };
   if (email) {
     let allData = [];

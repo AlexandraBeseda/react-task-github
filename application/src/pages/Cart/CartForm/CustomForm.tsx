@@ -10,7 +10,7 @@ import {
 } from '../../../bll/reducers/paymentCardReducer';
 import { validateCart } from '../../../utils/validate/validateCart';
 
-export const CustomForm: React.FC<{ total: number }> = (props) => {
+export const CustomForm: React.FC<{ total: number }> = ({ total }) => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
   return (
@@ -32,7 +32,7 @@ export const CustomForm: React.FC<{ total: number }> = (props) => {
             values.email,
             values.mobile,
             orderId,
-            props.total
+            total
           )
         );
         dispatch(
@@ -41,7 +41,7 @@ export const CustomForm: React.FC<{ total: number }> = (props) => {
             values.surname,
             values.name,
             values.mobile,
-            props.total
+            total
           )
         );
       }}

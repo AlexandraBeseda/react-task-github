@@ -1,10 +1,12 @@
 {
     "env": {
         "browser": true,
-        "es2021": true
+        "es2021": true,
+        "jest": true
     },
     "extends": [
         "prettier",
+        "plugin:jest/recommended",
         "plugin:react/recommended",
         "airbnb"
     ],
@@ -22,6 +24,13 @@
         "@typescript-eslint"
     ],
     "rules": {
+      /* ********************** */
+      "jest/no-disabled-tests": "warn",
+    "jest/no-focused-tests": "error",
+    "jest/no-identical-title": "error",
+    "jest/prefer-to-have-length": "warn",
+    "jest/valid-expect": "error",
+      /* *********************** */
       "function-paren-newline":"off",
       "no-debugger":"warn",
       "array-callback-return":"off",

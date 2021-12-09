@@ -10,13 +10,16 @@
     "@fortawesome/free-regular-svg-icons": "^5.15.4",
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
     "@fortawesome/react-fontawesome": "^0.1.16",
-    "@testing-library/react": "^11.1.0",
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^12.1.10",
+    "@types/jest": "^27.0.3",
     "@types/node": "^12.0.0",
     "@types/react-dom": "^17.0.0",
     "@types/react-redux": "^7.1.20",
     "@types/react-router": "^5.1.17",
     "@types/uuid": "^8.3.1",
+    "eslint-plugin-jest": "^25.3.0",
     "formik": "^2.2.9",
     "i18next": "^21.5.2",
     "i18next-browser-languagedetector": "^6.1.2",
@@ -43,7 +46,8 @@
     "lint": "eslint --ext .ts,.tsx src --fix",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "test": "jest"
   },
   "browserslist": {
     "production": [
@@ -60,12 +64,12 @@
   "devDependencies": {
     "@babel/core": "^7.16.0",
     "@babel/preset-env": "^7.16.4",
+    "@babel/preset-react": "^7.16.0",
     "@babel/preset-typescript": "^7.16.0",
     "@types/react": "^17.0.34",
     "@typescript-eslint/eslint-plugin": "^5.3.0",
     "@typescript-eslint/parser": "^5.3.0",
     "babel-eslint": "^10.1.0",
-    "eslint": "^7.32.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.25.2",
@@ -73,6 +77,7 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.26.1",
     "eslint-plugin-react-hooks": "^4.2.0",
-    "prettier": "2.4.1"
+    "prettier": "2.4.1",
+    "react-test-renderer": "^17.0.2"
   }
 }

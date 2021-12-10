@@ -9,6 +9,7 @@ import styles from './NavBar.module.css';
 import i18n from '../../utils/i18next';
 import { setCustomerData } from '../../bll/reducers/paymentCardReducer';
 import { deleteAccount } from '../../bll/reducers/registrationReducer';
+import { cleanCart } from '../../bll/reducers/cartReducer';
 
 export const NavBar: React.FC = () => {
   const dispatch = useDispatch();
@@ -18,14 +19,14 @@ export const NavBar: React.FC = () => {
   const handlerDeleteAccount = () => {
     dispatch(deleteAccount());
     dispatch(setCustomerData('', '', '', '', '', 0));
+    dispatch(cleanCart());
     navigate(PATH.REGISTRATION);
   };
 
   const NAV_BAR_ARRAY = [
     { id: v1(), pageName: 'cars', path: PATH.CARS },
     { id: v1(), pageName: 'cart', path: PATH.CART },
-    { id: v1(), pageName: 'profile', path: PATH.PROFILE },
-    { id: v1(), pageName: 'error404', path: PATH.ERROR404 }
+    { id: v1(), pageName: 'profile', path: PATH.PROFILE }
   ];
 
   const handleENG = () => {

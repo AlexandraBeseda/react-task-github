@@ -1,55 +1,46 @@
-import React, { useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
+import React from 'react';
 import { useSelector } from 'react-redux';
-import { NavLink, useNavigate } from 'react-router-dom';
 import { redirect } from '../../bll/redirect';
 import { CartPropTypes } from '../../bll/reducers/cartReducer';
 import { AppStateType } from '../../bll/store';
-import { PATH } from '../PageRoutes/PageRoutes';
-import { CarInCart } from './CarInCart';
+import { formatTotalAmount } from '../../utils/formatTotalAmount';
+import { CarInCart } from './CarInCart/CarInCart';
 import style from './Cart.module.css';
 import { CartForm } from './CartForm/CartForm';
+import { CartFormHeader } from './CartForm/CartFormHeader/CartFormHeader';
+import { CartHeader } from './CartHeader/CartHeader';
+import { EmptyCart } from './EmptyCart/EmptyCart';
 
 export const Cart: React.FC = () => {
   const cartReducer = useSelector<AppStateType, CartPropTypes[]>(
     (state) => state.cartReducer
   );
-  const navigate = useNavigate();
-  const { t } = useTranslation();
-
-  useEffect(() => {
-    if (cartReducer.length === 0) {
-      navigate(PATH.CART);
-    }
-  }, [cartReducer]);
+  const paymentCarDReducerTotal = useSelector<AppStateType, number>(
+    (state) => state.paymentCardReducer.total
+  );
+  const orderNum = useSelector<AppStateType, string>(
+    (state) => state.paymentCardReducer.orderNum
+  );
   redirect();
-  if (cartReducer.length < 1) {
-    return (
-      <div className={style.mainBlock}>
-        <h1>{t('cart.cartIsEmpty')}</h1>
-        <h3>
-          <NavLink className={style.link} to={PATH.CARS}>
-            {t('messages.startShopping')}
-          </NavLink>
-        </h3>
-      </div>
-    );
-  }
 
   let cartTotalSum = 0;
   cartReducer.forEach((car) => {
     cartTotalSum += car.total;
   });
 
+  const totalCarPrice = formatTotalAmount(cartTotalSum);
+  const isCartEmpty = cartReducer.length < 1;
+  if (isCartEmpty) {
+    return <EmptyCart />;
+  }
+  const isCartFull = cartReducer.length > 0;
+  const isPaymentCardFull = paymentCarDReducerTotal > 0;
+  if (isCartFull && isPaymentCardFull) {
+    return <CartFormHeader total={totalCarPrice} orderNum={orderNum} />;
+  }
   return (
     <div className={style.mainBlock}>
-      <div className={style.card}>
-        <div className={style.carName}>{t('header.links.cars')}</div>
-        <div className={style.carPrice}>{t('car.param.price')}</div>
-        <div className={style.input}>{t('cart.amount')}</div>
-        <div className={style.totalPrice}>{t('cart.total')}</div>
-        <div className={style.deleteButton}>{t('common.button.delete')}</div>
-      </div>
+      <CartHeader />
       {cartReducer.map((car) => (
         <CarInCart
           key={car.id}
@@ -67,7 +58,7 @@ export const Cart: React.FC = () => {
           total={car.total}
         />
       ))}
-      <CartForm totalCartSum={cartTotalSum} />
+      <CartForm total={totalCarPrice} orderNum={orderNum} />
     </div>
   );
 };

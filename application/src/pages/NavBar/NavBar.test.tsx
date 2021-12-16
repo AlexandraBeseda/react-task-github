@@ -4,9 +4,11 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { NavBar } from './NavBar';
 import { store } from '../../bll/store';
+import i18n from '../../utils/i18next';
 
 describe('NavBar', () => {
   beforeEach(() => {
+    i18n.init();
     render(
       <BrowserRouter>
         <Provider store={store}>
@@ -22,7 +24,6 @@ describe('NavBar', () => {
     expect(screen.getByText('Ru')).toBeInTheDocument();
     expect(screen.getByText('En')).toBeInTheDocument();
     expect(screen.getByText('Delete Account')).toBeInTheDocument();
-
     expect(screen.queryByText(/login/)).toBeNull();
   });
   test('clicked Ru button', () => {

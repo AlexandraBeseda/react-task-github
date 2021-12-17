@@ -41,6 +41,7 @@
     "testing-library/no-await-sync-query": "error",
     "testing-library/no-debugging-utils": "off",
     "testing-library/no-dom-import": "off",
+    "testing-library/no-render-in-setup":"error",
       /* *********************** */
       "cypress/no-assigning-return-values": "error",
     "cypress/no-unnecessary-waiting": "error",

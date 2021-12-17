@@ -1,3 +1,4 @@
+/* eslint-disable jest/no-export */
 /// <reference types="cypress" />
 export {};
 describe('Kitchen Sink', () => {

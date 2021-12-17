@@ -8,7 +8,9 @@
         "prettier",
         "plugin:jest/recommended",
         "plugin:react/recommended",
-        "airbnb"
+        "airbnb",
+        "plugin:cypress/recommended",
+        "plugin:testing-library/react"
     ],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
@@ -21,7 +23,10 @@
     "plugins": [
         "react",
         "prettier",
-        "@typescript-eslint"
+        "@typescript-eslint",
+        "cypress",
+        "react-hooks",
+        "testing-library"
     ],
     "rules": {
       /* ********************** */
@@ -30,7 +35,20 @@
     "jest/no-identical-title": "error",
     "jest/prefer-to-have-length": "warn",
     "jest/valid-expect": "error",
+          /* *********************** */
+
+    "testing-library/await-async-query": "error",
+    "testing-library/no-await-sync-query": "error",
+    "testing-library/no-debugging-utils": "off",
+    "testing-library/no-dom-import": "off",
       /* *********************** */
+      "cypress/no-assigning-return-values": "error",
+    "cypress/no-unnecessary-waiting": "error",
+    "cypress/assertion-before-screenshot": "warn",
+    "cypress/no-force": "warn",
+    "cypress/no-async-tests": "error",
+    "cypress/no-pause": "error",
+    /*************************************/
       "function-paren-newline":"off",
       "no-debugger":"warn",
       "array-callback-return":"off",

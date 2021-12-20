@@ -5,11 +5,11 @@ import i18n from '../../../utils/i18next';
 import cars from '../../../data/database.json';
 import { store } from '../../../bll/store';
 
-describe('Car was added to cart', () => {
-  beforeEach(() => {
+describe('CarInCart component', () => {
+  beforeEach(() => {});
+  test('check only text render', () => {
     i18n.init();
-  });
-  test('text', () => {
+
     const car = cars[0];
     render(
       <Provider store={store}>

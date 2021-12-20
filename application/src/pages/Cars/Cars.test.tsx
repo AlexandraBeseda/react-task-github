@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import { Cars } from './Cars';
 import { store } from '../../bll/store';
 
-describe('Cars', () => {
+describe('Cars component', () => {
   test('render', () => {
     render(
       <Provider store={store}>

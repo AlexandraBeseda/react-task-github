@@ -1,13 +1,13 @@
 import { FormikErrors } from 'formik';
 import { isEmailValid } from './isEmailValid';
 
-type FormValues = {
+export type FormValuesRegistrLogin = {
   email: string;
   password: string;
 };
 
-export const validateRegistrLogin = (values: FormValues) => {
-  const errors: FormikErrors<FormValues> = {};
+export const validateRegistrLogin = (values: FormValuesRegistrLogin) => {
+  const errors: FormikErrors<FormValuesRegistrLogin> = {};
   if (!values.email) {
     errors.email = 'required';
   } else if (!isEmailValid(values.email)) {

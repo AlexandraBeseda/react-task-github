@@ -1,11 +1,11 @@
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import { v1 } from 'uuid';
 import { Order } from './Order';
 
-describe('Order', () => {
-  test('text', () => {
+describe('Order component', () => {
+  test('check only text render', () => {
     const id = v1();
-    render(
+    const { getByText } = render(
       <Order
         orderId={id}
         surname="Holms"
@@ -15,10 +15,10 @@ describe('Order', () => {
         date="200"
       />
     );
-    expect(screen.getByText(id)).toBeInTheDocument();
-    expect(screen.getByText('Holms Sherlock')).toBeInTheDocument();
-    expect(screen.getByText('+37529876678')).toBeInTheDocument();
-    expect(screen.getByText('100 $')).toBeInTheDocument();
-    expect(screen.getByText('200')).toBeInTheDocument();
+    expect(getByText(id)).toBeInTheDocument();
+    expect(getByText(/Holms Sherlock/i)).toBeInTheDocument();
+    expect(getByText(/\+37529876678/i)).toBeInTheDocument();
+    expect(getByText(/100 \$/i)).toBeInTheDocument();
+    expect(getByText(/200/i)).toBeInTheDocument();
   });
 });

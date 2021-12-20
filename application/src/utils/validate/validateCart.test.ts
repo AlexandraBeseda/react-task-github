@@ -1,13 +1,16 @@
-import { validateCart } from './validateCart';
+import { FormValues, validateCart } from './validateCart';
 
-describe('validateCart', () => {
-  test('validate with empty inputs', () => {
-    const values = {
+describe('validateCart function', () => {
+  let values: FormValues = { surname: '', name: '', email: '', mobile: '' };
+  beforeEach(() => {
+    values = {
       surname: '',
       name: '',
       email: '',
       mobile: ''
     };
+  });
+  test('validate with empty inputs', () => {
     const errors = validateCart(values);
     expect(errors.email).toBe('required');
     expect(errors.mobile).toBe('required');
@@ -15,7 +18,7 @@ describe('validateCart', () => {
     expect(errors.surname).toBe('required');
   });
   test('validate with email 1111', () => {
-    const values = {
+    values = {
       surname: '',
       name: '',
       email: '111',
@@ -28,7 +31,7 @@ describe('validateCart', () => {
     expect(errors.surname).toBe('required');
   });
   test('validate with correct parametres', () => {
-    const values = {
+    values = {
       surname: 'Burak',
       name: 'Leva',
       email: 'pararam@gmail.com',

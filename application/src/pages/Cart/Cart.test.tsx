@@ -7,7 +7,7 @@ import { store } from '../../bll/store';
 import { cartReducer } from '../../bll/reducers/cartReducer';
 import i18n from '../../utils/i18next';
 
-describe('Cart', () => {
+describe('Cart component', () => {
   beforeEach(() => {
     i18n.init();
   });

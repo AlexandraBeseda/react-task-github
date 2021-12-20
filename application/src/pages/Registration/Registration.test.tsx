@@ -6,7 +6,7 @@ import { Registration } from './Registration';
 import { store } from '../../bll/store';
 import i18n from '../../utils/i18next';
 
-describe('Registration', () => {
+describe('Registration component', () => {
   beforeEach(() => {
     i18n.init();
   });

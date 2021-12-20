@@ -18,13 +18,13 @@ i18n
     },
     // keySeparator: false,
     // we use keys!
+    //  react: { useSuspense: false }
     // true is by default
     resources: {
       en: { translation: translationENG },
       ru: { translation: translationRU }
     },
-    // react: { wait: false }
-    react: { useSuspense: false }
+    react: { wait: false }
   });
 
 export default i18n;

@@ -1,25 +1,27 @@
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import { CustomForm } from './CustomForm';
 import { store } from '../../../bll/store';
 import i18n from '../../../utils/i18next';
 
-describe('CustomForm', () => {
-  beforeEach(() => {
+function setup(total: number) {
+  const { getByText, getByPlaceholderText } = render(
+    <BrowserRouter>
+      <Provider store={store}>
+        <CustomForm total={total} />
+      </Provider>
+    </BrowserRouter>
+  );
+  return [getByText, getByPlaceholderText];
+}
+describe('CustomForm component', () => {
+  test('search by text surname, mobile phone, submit', () => {
     i18n.init();
-  });
-  test('text', () => {
-    render(
-      <BrowserRouter>
-        <Provider store={store}>
-          <CustomForm total={20188333} />
-        </Provider>
-      </BrowserRouter>
-    );
-    expect(screen.getByPlaceholderText('Surname')).toBeInTheDocument();
-    expect(screen.getByPlaceholderText('Name')).toBeInTheDocument();
-    expect(screen.getByPlaceholderText('Mobile phone')).toBeInTheDocument();
-    expect(screen.getByText('Submit')).toBeInTheDocument();
+    const total = 20188333;
+    const [getByText, getByPlaceholderText] = setup(total);
+    expect(getByPlaceholderText(/Surname/i)).toBeInTheDocument();
+    expect(getByPlaceholderText(/mobile phone/i)).toBeInTheDocument();
+    expect(getByText(/Submit/i)).toBeInTheDocument();
   });
 });

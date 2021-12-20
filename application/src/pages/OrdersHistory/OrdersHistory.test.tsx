@@ -5,7 +5,7 @@ import { OrdersHistory } from './OrdersHistory';
 import { store } from '../../bll/store';
 import i18n from '../../utils/i18next';
 
-describe('OrdersHistory', () => {
+describe('OrdersHistory component', () => {
   beforeEach(() => {
     i18n.init();
   });

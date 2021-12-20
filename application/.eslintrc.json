@@ -94,6 +94,7 @@
       "@typescript-eslint/no-use-before-define": "error",
       "linebreak-style": "off",
       "react/jsx-filename-extension": ["error", { "extensions": [".jsx", ".tsx"] }],
+      "react/button-has-type":"off",
       "jsx-quotes": ["error","prefer-double"],
       "object-curly-newline": ["error", {
         "ObjectExpression": { "multiline": true },

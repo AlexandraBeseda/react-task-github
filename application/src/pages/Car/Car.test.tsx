@@ -8,10 +8,6 @@ import i18n from '../../utils/i18next';
 import { CartPropTypes } from '../../bll/reducers/cartReducer';
 
 let car: CartPropTypes;
-
-beforeEach(() => {
-  car = { ...cars[0], amount: 0, total: 0 };
-});
 const setup = () => {
   render(
     <BrowserRouter>
@@ -33,8 +29,13 @@ const setup = () => {
   );
 };
 describe('Car componenet', () => {
-  test('text', () => {
-    setup();
+  beforeEach(() => {
+    car = { ...cars[0], amount: 0, total: 0 };
+  });
+  test('check only test render', () => {
+    act(() => {
+      setup();
+    });
     i18n.init();
     expect(screen.getAllByAltText('car')).toBeDefined();
     expect(screen.getByText('Add to cart')).toBeInTheDocument();

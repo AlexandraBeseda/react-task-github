@@ -1,9 +1,15 @@
-/* eslint-disable jest/no-export */
+/* eslint-disable jest/valid-expect */
 /// <reference types="cypress" />
-export {};
-describe('Kitchen Sink', () => {
-  it('.should() - assert that <title> is correct', () => {
-    cy.visit('https://example.cypress.io');
-    cy.title().should('include', 'Kitchen Sink');
+import { expect } from 'chai';
+
+describe('Starting With Tests', () => {
+  it('Does 2+2 equal 4?', () => {
+    expect(2 + 2).to.equal(4);
+  });
+  it('Does 4+5 return 10?', () => {
+    expect(4 + 5).to.equal(9);
+  });
+  it('Confirm if 5+5 does NOT give 100', () => {
+    expect(5 + 5).to.not.equal(100);
   });
 });

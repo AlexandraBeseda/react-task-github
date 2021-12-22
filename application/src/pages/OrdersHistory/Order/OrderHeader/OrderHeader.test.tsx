@@ -1,17 +1,16 @@
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import { OrderHeader } from './OrderHeader';
 import i18n from '../../../../utils/i18next';
 
-describe('OrderHeader', () => {
-  beforeEach(() => {
+const setUp = () => <OrderHeader />;
+describe('OrderHeader component', () => {
+  test('check only text render', () => {
     i18n.init();
-  });
-  test('text', () => {
-    render(<OrderHeader />);
-    expect(screen.getByText('Order number')).toBeInTheDocument();
-    expect(screen.getByText('Customer')).toBeInTheDocument();
-    expect(screen.getByText('Mobile phone')).toBeInTheDocument();
-    expect(screen.getByText('Total')).toBeInTheDocument();
-    expect(screen.getByText('Order date')).toBeInTheDocument();
+    const { getByText } = render(setUp());
+    expect(getByText('Order number')).toBeInTheDocument();
+    expect(getByText('Customer')).toBeInTheDocument();
+    expect(getByText('Mobile phone')).toBeInTheDocument();
+    expect(getByText('Total')).toBeInTheDocument();
+    expect(getByText('Order date')).toBeInTheDocument();
   });
 });

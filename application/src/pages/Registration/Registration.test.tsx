@@ -6,21 +6,20 @@ import { Registration } from './Registration';
 import { store } from '../../bll/store';
 import i18n from '../../utils/i18next';
 
+const setUp = () => (
+  <BrowserRouter>
+    <Provider store={store}>
+      <Registration />
+    </Provider>
+  </BrowserRouter>
+);
 describe('Registration component', () => {
-  beforeEach(() => {
+  test('check only text render', () => {
     i18n.init();
-  });
-  test('text', () => {
-    render(
-      <BrowserRouter>
-        <Provider store={store}>
-          <Registration />
-        </Provider>
-      </BrowserRouter>
-    );
-    expect(screen.getByText('Registration')).toBeInTheDocument();
-    expect(screen.getByPlaceholderText('Email')).toBeInTheDocument();
-    expect(screen.getByPlaceholderText('Password')).toBeInTheDocument();
+    const { getByText, getByPlaceholderText } = render(setUp());
+    expect(getByText('Registration')).toBeInTheDocument();
+    expect(getByPlaceholderText('Email')).toBeInTheDocument();
+    expect(getByPlaceholderText('Password')).toBeInTheDocument();
   });
 
   test('input onchange', () => {

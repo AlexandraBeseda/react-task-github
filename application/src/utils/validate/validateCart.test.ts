@@ -1,7 +1,15 @@
+import { FormikErrors } from 'formik';
 import { FormValues, validateCart } from './validateCart';
 
 describe('validateCart function', () => {
   let values: FormValues = { surname: '', name: '', email: '', mobile: '' };
+  let errors: FormikErrors<FormValues> = {
+    surname: '',
+    name: '',
+    email: '',
+    mobile: ''
+  };
+
   beforeEach(() => {
     values = {
       surname: '',
@@ -9,9 +17,15 @@ describe('validateCart function', () => {
       email: '',
       mobile: ''
     };
+    errors = {
+      surname: '',
+      name: '',
+      email: '',
+      mobile: ''
+    };
   });
   test('validate with empty inputs', () => {
-    const errors = validateCart(values);
+    errors = validateCart(values);
     expect(errors.email).toBe('required');
     expect(errors.mobile).toBe('required');
     expect(errors.name).toBe('required');
@@ -24,7 +38,7 @@ describe('validateCart function', () => {
       email: '111',
       mobile: ''
     };
-    const errors = validateCart(values);
+    errors = validateCart(values);
     expect(errors.email).toBe('invalidEmailAddress');
     expect(errors.mobile).toBe('required');
     expect(errors.name).toBe('required');
@@ -37,7 +51,7 @@ describe('validateCart function', () => {
       email: 'pararam@gmail.com',
       mobile: '+375291586324'
     };
-    const errors = validateCart(values);
+    errors = validateCart(values);
     expect(errors.email).toBeUndefined();
     expect(errors.mobile).toBeUndefined();
     expect(errors.name).toBeUndefined();

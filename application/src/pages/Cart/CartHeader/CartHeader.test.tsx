@@ -2,14 +2,14 @@ import { render } from '@testing-library/react';
 import { CartHeader } from './CartHeader';
 import i18n from '../../../utils/i18next';
 
-function setup() {
-  const { getByText } = render(<CartHeader />);
-  return getByText;
+function setUp() {
+  return <CartHeader />;
 }
+
 describe('CartHeader componenet', () => {
-  test('only text', () => {
+  test('check only text render', () => {
     i18n.init();
-    const getByText = setup();
+    const { getByText } = render(setUp());
     expect(getByText(/cars/i)).toBeInTheDocument();
     expect(getByText(/price/i)).toBeInTheDocument();
     expect(getByText(/amount/i)).toBeInTheDocument();

@@ -1,19 +1,10 @@
-import { render } from '@testing-library/react';
-import { Provider } from 'react-redux';
-import { BrowserRouter } from 'react-router-dom';
 import { Car, CarPropTypes } from './Car';
 import cars from '../../data/database.json';
-import { store } from '../../bll/store';
 import i18n from '../../utils/i18next';
 import { CartPropTypes } from '../../bll/reducers/cartReducer';
+import { render } from '../../utils/test-utils/test-utils';
 
-const setUp = (props: CarPropTypes) => (
-  <BrowserRouter>
-    <Provider store={store}>
-      <Car {...props} />
-    </Provider>
-  </BrowserRouter>
-);
+const setUp = (props: CarPropTypes) => <Car {...props} />;
 
 describe('Car componenet', () => {
   let car: CartPropTypes;

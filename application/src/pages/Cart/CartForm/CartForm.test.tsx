@@ -1,16 +1,9 @@
-import { render } from '@testing-library/react';
-import { BrowserRouter } from 'react-router-dom';
-import { Provider } from 'react-redux';
 import { CartForm } from './CartForm';
 import i18n from '../../../utils/i18next';
-import { store } from '../../../bll/store';
+import { render } from '../../../utils/test-utils/test-utils';
 
 const setUp = (props: { total: number; orderNum: string }) => (
-  <Provider store={store}>
-    <BrowserRouter>
-      <CartForm {...props} />
-    </BrowserRouter>
-  </Provider>
+  <CartForm {...props} />
 );
 
 describe('CartForm component', () => {

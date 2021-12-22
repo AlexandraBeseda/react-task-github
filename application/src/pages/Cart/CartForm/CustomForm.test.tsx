@@ -1,17 +1,8 @@
-import { render } from '@testing-library/react';
-import { Provider } from 'react-redux';
-import { BrowserRouter } from 'react-router-dom';
 import { CustomForm } from './CustomForm';
-import { store } from '../../../bll/store';
 import i18n from '../../../utils/i18next';
+import { render } from '../../../utils/test-utils/test-utils';
 
-const setUp = (props: { total: number }) => (
-  <BrowserRouter>
-    <Provider store={store}>
-      <CustomForm {...props} />
-    </Provider>
-  </BrowserRouter>
-);
+const setUp = (props: { total: number }) => <CustomForm {...props} />;
 describe('CustomForm component', () => {
   test('search by text surname, mobile phone, submit', () => {
     i18n.init();

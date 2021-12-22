@@ -1,18 +1,9 @@
-import { BrowserRouter } from 'react-router-dom';
-import { Provider } from 'react-redux';
-import { render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { NavBar } from './NavBar';
-import { store } from '../../bll/store';
 import i18n from '../../utils/i18next';
+import { render } from '../../utils/test-utils/test-utils';
 
-const setUp = () => (
-  <BrowserRouter>
-    <Provider store={store}>
-      <NavBar />
-    </Provider>
-  </BrowserRouter>
-);
+const setUp = () => <NavBar />;
 
 describe('NavBar component', () => {
   test('check only English text render', () => {
@@ -27,7 +18,7 @@ describe('NavBar component', () => {
     expect(queryByText(/login/i)).toBeNull();
   });
   test('check only Russian text render', () => {
-    const { getByText } = render(setUp());
+    const { getByText } = render(<NavBar />);
     userEvent.click(getByText(/Ru/i));
     expect(getByText(/Профиль/i)).toBeInTheDocument();
     expect(getByText(/Автомобили/i)).toBeInTheDocument();

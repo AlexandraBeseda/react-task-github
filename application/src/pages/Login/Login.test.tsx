@@ -1,17 +1,8 @@
-import { render } from '@testing-library/react';
-import { BrowserRouter } from 'react-router-dom';
-import { Provider } from 'react-redux';
 import { Login } from './Login';
-import { store } from '../../bll/store';
 import i18n from '../../utils/i18next';
+import { render } from '../../utils/test-utils/test-utils';
 
-const setUp = () => (
-  <BrowserRouter>
-    <Provider store={store}>
-      <Login />
-    </Provider>
-  </BrowserRouter>
-);
+const setUp = () => <Login />;
 
 describe('Login component', () => {
   test('check only text render', () => {

@@ -8,10 +8,11 @@ import {
   ActionType
 } from './registrationReducer';
 
-describe('registration reducer tests', () => {
+describe('Registration reducer tests', () => {
   let defaultRegistrationState: RegistratonInitStateTypes;
   let newState: RegistratonInitStateTypes;
   let action: ActionType;
+  let newLenght;
   beforeEach(() => {
     defaultRegistrationState = {
       email: '',
@@ -19,25 +20,28 @@ describe('registration reducer tests', () => {
       isLoading: false,
       error: ''
     };
+    newLenght = 0;
   });
-  test('set new email', () => {
+  test('should set new email', () => {
     action = setEmail('coo.kies@gmail.com');
     newState = registrationReducer(defaultRegistrationState, action);
-    expect(newState.email.length).toBeGreaterThan(5);
+    newLenght = 5;
+    expect(newState.email.length).toBeGreaterThan(newLenght);
   });
 
-  test('set new password', () => {
+  test('should set new password', () => {
     action = setPassword('123098');
     newState = registrationReducer(defaultRegistrationState, action);
-    expect(newState.password.length).toBeGreaterThan(5);
+    newLenght = 5;
+    expect(newState.password.length).toBeGreaterThan(newLenght);
   });
-  test('set loading true', () => {
+  test('should set loading true', () => {
     action = setLoading(true);
     newState = registrationReducer(defaultRegistrationState, action);
     expect(newState.isLoading).toBeTruthy();
   });
 
-  test('set error', () => {
+  test('should set error', () => {
     action = setError('some text must be here');
     newState = registrationReducer(defaultRegistrationState, action);
     expect(newState.error).toContain('some');

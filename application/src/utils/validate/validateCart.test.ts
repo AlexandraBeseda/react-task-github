@@ -31,7 +31,7 @@ describe('validateCart function', () => {
     expect(errors.name).toBe('required');
     expect(errors.surname).toBe('required');
   });
-  test('validate with email 1111', () => {
+  test('validate with invalid email', () => {
     values = {
       surname: '',
       name: '',

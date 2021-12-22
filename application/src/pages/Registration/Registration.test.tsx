@@ -1,18 +1,10 @@
-import { render, screen } from '@testing-library/react';
-import { BrowserRouter } from 'react-router-dom';
-import { Provider } from 'react-redux';
+import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { Registration } from './Registration';
-import { store } from '../../bll/store';
 import i18n from '../../utils/i18next';
+import { render } from '../../utils/test-utils/test-utils';
 
-const setUp = () => (
-  <BrowserRouter>
-    <Provider store={store}>
-      <Registration />
-    </Provider>
-  </BrowserRouter>
-);
+const setUp = () => <Registration />;
 describe('Registration component', () => {
   test('check only text render', () => {
     i18n.init();

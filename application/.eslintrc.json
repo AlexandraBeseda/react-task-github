@@ -28,6 +28,7 @@
     "react-hooks",
     "testing-library"
   ],
+
   "rules": {
     "jest/no-disabled-tests": "warn",
     "jest/no-focused-tests": "error",
@@ -101,6 +102,7 @@
       "error",
       { "extensions": [".jsx", ".tsx"] }
     ],
+
     "react/button-has-type": "off",
     "jsx-quotes": ["error", "prefer-double"],
     "react/jsx-props-no-spreading": "off",

@@ -12,6 +12,7 @@ describe('validateCart function', () => {
 
   beforeEach(() => {
     values = {
+
       surname: '',
       name: '',
       email: '',
@@ -31,7 +32,6 @@ describe('validateCart function', () => {
     expect(errors.name).toBe('required');
     expect(errors.surname).toBe('required');
   });
-
   test('validate with invalid email', () => {
     values = {
       surname: '',
@@ -39,7 +39,6 @@ describe('validateCart function', () => {
       email: '111',
       mobile: ''
     };
-
     errors = validateCart(values);
     expect(errors.email).toBe('invalidEmailAddress');
     expect(errors.mobile).toBe('required');
@@ -53,7 +52,6 @@ describe('validateCart function', () => {
       email: 'pararam@gmail.com',
       mobile: '+375291586324'
     };
-
     errors = validateCart(values);
     expect(errors.email).toBeUndefined();
     expect(errors.mobile).toBeUndefined();

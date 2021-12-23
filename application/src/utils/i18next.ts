@@ -19,8 +19,7 @@ i18n
       en: { translation: translationENG },
       ru: { translation: translationRU }
     },
-    // react: { wait: false }
-    react: { useSuspense: false }
+    react: { wait: false }
   });
 
 export default i18n;

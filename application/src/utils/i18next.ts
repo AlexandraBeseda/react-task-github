@@ -10,15 +10,11 @@ i18n
   .init({
     fallbackLng: 'en',
     supportedLngs: ['en', 'ru'],
-
     debug: false,
     detection: {
       order: ['localStorage', 'cookie'],
       caches: ['localStorage', 'cookie']
     },
-    // keySeparator: false,
-    // we use keys!
-    // true is by default
     resources: {
       en: { translation: translationENG },
       ru: { translation: translationRU }

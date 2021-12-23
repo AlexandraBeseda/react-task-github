@@ -1,25 +1,15 @@
-import { render, screen } from '@testing-library/react';
-import { BrowserRouter } from 'react-router-dom';
-import { Provider } from 'react-redux';
 import { Login } from './Login';
-import { store } from '../../bll/store';
 import i18n from '../../utils/i18next';
+import { render } from '../../utils/test-utils/test-utils';
 
-describe('Login', () => {
-  beforeEach(() => {
+const setUp = () => <Login />;
+
+describe('Login component', () => {
+  test('check only text render', () => {
     i18n.init();
-  });
-  test('text', () => {
-    render(
-      <BrowserRouter>
-        <Provider store={store}>
-          <Login />
-        </Provider>
-      </BrowserRouter>
-    );
-
-    expect(screen.getByText('Login')).toBeInTheDocument();
-    expect(screen.getByPlaceholderText('Email')).toBeInTheDocument();
-    expect(screen.getByPlaceholderText('Password')).toBeInTheDocument();
+    const { getByPlaceholderText, getByText } = render(setUp());
+    expect(getByText(/Login/i)).toBeInTheDocument();
+    expect(getByPlaceholderText(/Email/i)).toBeInTheDocument();
+    expect(getByPlaceholderText(/Password/i)).toBeInTheDocument();
   });
 });

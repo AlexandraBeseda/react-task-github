@@ -1,7 +1,7 @@
 import { getDate } from './getDate';
 
 describe('getDate function', () => {
-  it('get todays date', () => {
+  it('should get todays date', () => {
     const date = new Date();
     const day = date.getUTCDate();
     const month = date.getMonth() + 1;

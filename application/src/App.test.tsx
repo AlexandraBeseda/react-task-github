@@ -8,7 +8,7 @@ import App from './App';
 import { store } from './bll/store';
 import './utils/i18next';
 
-describe('App', () => {
+describe('App component', () => {
   test('render in div id=root', () => {
     const div = document.createElement('div');
     ReactDOM.render(

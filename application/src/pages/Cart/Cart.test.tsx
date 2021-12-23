@@ -1,23 +1,15 @@
-import { render, screen } from '@testing-library/react';
+/* eslint-disable jest/expect-expect */
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import { Cart } from './Cart';
-import cars from '../../data/database.json';
 import { store } from '../../bll/store';
-import { cartReducer } from '../../bll/reducers/cartReducer';
 import i18n from '../../utils/i18next';
+import { render } from './../../utils/test-utils/test-utils';
 
-describe('Cart', () => {
-  beforeEach(() => {
-    i18n.init();
-  });
+const setUp = () => <Cart />;
+describe('Cart component', () => {
   test('text', () => {
-    render(
-      <BrowserRouter>
-        <Provider store={store}>
-          <Cart />
-        </Provider>
-      </BrowserRouter>
-    );
+    i18n.init();
+    render(setUp());
   });
 });

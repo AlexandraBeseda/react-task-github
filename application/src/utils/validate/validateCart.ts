@@ -1,7 +1,7 @@
 import { FormikErrors } from 'formik';
 import { isEmailValid } from './isEmailValid';
 
-type FormValues = {
+export type FormValues = {
   email: string;
   surname: string;
   name: string;

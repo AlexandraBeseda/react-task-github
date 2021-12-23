@@ -1,18 +1,28 @@
 import { isEmailValid } from './isEmailValid';
-import { validateRegistrLogin } from './validateRegistrLogin';
+import {
+  FormValuesRegistrLogin,
+  validateRegistrLogin
+} from './validateRegistrLogin';
 
 describe('validate Registration and Login inputs', () => {
-  test('validate empty inputs', () => {
-    const values = {
+  let values: FormValuesRegistrLogin = {
+    email: '',
+    password: ''
+  };
+
+  beforeEach(() => {
+    values = {
       email: '',
       password: ''
     };
+  });
+  test('validate empty inputs', () => {
     const result = validateRegistrLogin(values);
     expect(result.email).toBe('required');
     expect(result.password).toBe('required');
   });
   test('validate password length less 6 symbols', () => {
-    const values = {
+    values = {
       email: '',
       password: '11'
     };
@@ -20,7 +30,7 @@ describe('validate Registration and Login inputs', () => {
     expect(result.password).toBe('passwordLenght');
   });
   test('validate email incorrect', () => {
-    const values = {
+    values = {
       email: 'sgvsg',
       password: ''
     };
@@ -28,7 +38,7 @@ describe('validate Registration and Login inputs', () => {
     expect(result.email).toBe('invalidEmailAddress');
   });
   test('validate email with isEmailValid() func', () => {
-    const values = {
+    values = {
       email: 'fvdfvffvfvbfvdf',
       password: ''
     };

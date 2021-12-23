@@ -8,31 +8,41 @@ import {
 } from './cartReducer';
 import cars from '../../data/database.json';
 
-const defaultCartState: Array<CartPropTypes> = [];
-
-describe('cart reducer tests', () => {
-  test('add car to cart', () => {
-    const action = addToCart(cars[0]);
-    const newState = cartReducer(defaultCartState, action);
-    expect(newState).toHaveLength(1);
+describe('Cart reducer tests', () => {
+  const defaultCartState: Array<CartPropTypes> = [];
+  let initState: Array<CartPropTypes> = [];
+  let newState: Array<CartPropTypes> = [];
+  const defaultStateLenght = 0;
+  const initStateLenght = 1;
+  let car;
+  beforeEach(() => {
+    car = { ...cars[0] };
+    initState = cartReducer(defaultCartState, addToCart(car));
   });
-  test('add amount to cars', () => {
-    const initState = cartReducer(defaultCartState, addToCart(cars[0]));
-    const newState = cartReducer(initState, addAmount(cars[0].id, 2));
+  test('check defaultState lenght and initState lenght', () => {
+    expect(defaultCartState).toHaveLength(defaultStateLenght);
+    expect(initState).toHaveLength(initStateLenght);
+  });
+  test('should be added amount of first car', () => {
+    const amountFirstCar = 2;
+    newState = cartReducer(initState, addAmount(cars[0].id, amountFirstCar));
     expect(newState[0].id).toBe(cars[0].id);
-    expect(newState[0].amount).toBeGreaterThan(1);
+    expect(newState[0].amount).toBe(amountFirstCar);
   });
-  test('delete car', () => {
-    const initState = cartReducer(defaultCartState, addToCart(cars[0]));
-    const newState = cartReducer(initState, deleteCar(cars[0].id));
-    expect(newState.length).toBeLessThan(2);
+  test('initial state should be decrease on one car', () => {
+    expect(initState).toHaveLength(initStateLenght);
+    newState = cartReducer(initState, deleteCar(cars[0].id));
+    expect(newState).toHaveLength(defaultStateLenght);
   });
-  test('clean cart', () => {
-    const initState1 = cartReducer(defaultCartState, addToCart(cars[0]));
-    const initState2 = cartReducer(initState1, addToCart(cars[1]));
-    const initState3 = cartReducer(initState2, addToCart(cars[2]));
-    expect(initState3).toHaveLength(3);
-    const initState4 = cartReducer(initState3, cleanCart());
-    expect(initState4).toHaveLength(0);
+  test('cart should be clean', () => {
+    expect(initState).toHaveLength(initStateLenght);
+    const newStateTwoElem = cartReducer(initState, addToCart(cars[1]));
+    const newStateTwoElemLenght = 2;
+    expect(newStateTwoElem).toHaveLength(newStateTwoElemLenght);
+    const newStateThreeElem = cartReducer(newStateTwoElem, addToCart(cars[2]));
+    const newStateThreeElemLenght = 3;
+    expect(newStateThreeElem).toHaveLength(newStateThreeElemLenght);
+    const cleanState = cartReducer(newStateThreeElem, cleanCart());
+    expect(cleanState).toHaveLength(defaultStateLenght);
   });
 });

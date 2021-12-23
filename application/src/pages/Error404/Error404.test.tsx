@@ -1,10 +1,11 @@
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import { Error404 } from './Error404';
 import '@testing-library/jest-dom';
 
-describe('Error404 test componenet', () => {
-  test('testing Error404 component', () => {
-    render(<Error404 />);
-    expect(screen.getByText(/Error404 component/i)).toBeInTheDocument();
+const setUp = () => <Error404 />;
+describe('Error404 componenet', () => {
+  test('sheck only test render', () => {
+    const { getByText } = render(setUp());
+    expect(getByText(/Error404 component/i)).toBeInTheDocument();
   });
 });

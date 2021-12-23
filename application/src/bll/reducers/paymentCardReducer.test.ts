@@ -1,43 +1,39 @@
 import { v1 } from 'uuid';
-import {
-  paymentCardReducer,
-  setCustomerData,
-  saveDataOrders
-} from './paymentCardReducer';
 
-describe('payment card reducer', () => {
-  test('set customer data', () => {
+import { paymentCardReducer, setCustomerData } from './paymentCardReducer';
+
+describe('Payment card reducer', () => {
+  test('should set customer data', () => {
+    const initTotal = 0;
     const defaultPaymentCardState = {
       surname: '',
       name: '',
       email: '',
       mobile: '',
       orderNum: '',
-      total: 0
+      total: initTotal
     };
     const orderNum = v1();
+    const newTotal = 203040;
+    const surName = 'Hoks';
+    const name = 'Lola';
+    const email = 'catsliveforeverr@gmil.com';
+    const mobile = '+373557654444';
     const action = setCustomerData(
-      'Hoks',
-      'Lola',
-      'catsliveforeverr@gmil.com',
-      '+373557654444',
+      surName,
+      name,
+      email,
+      mobile,
       orderNum,
-      203040
+      newTotal
     );
     const newState = paymentCardReducer(defaultPaymentCardState, action);
-    expect(newState.total).toBeGreaterThan(0);
-    expect(newState.email.length).not.toBeLessThan(1);
+    expect(newState.total).toBe(newTotal);
+    const lenght = 1;
+    expect(newState.email.length).not.toBeLessThan(lenght);
   });
 
-  test('thunk', () => {
-    const orderID = '09876123546572';
-    const thunk = saveDataOrders(
-      orderID,
-      'Anders',
-      'Mops',
-      '+80232347766',
-      100500
-    );
+  test('should check empty localStorage', () => {
     const email = localStorage.getItem('email');
     expect(email).toBeNull();
   });

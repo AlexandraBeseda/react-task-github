@@ -1,50 +1,23 @@
-import { render, screen } from '@testing-library/react';
-import { Provider } from 'react-redux';
-import { BrowserRouter } from 'react-router-dom';
-import { Car } from './Car';
+import { Car, CarPropTypes } from './Car';
 import cars from '../../data/database.json';
-import { store } from '../../bll/store';
 import i18n from '../../utils/i18next';
 import { CartPropTypes } from '../../bll/reducers/cartReducer';
+import { render } from '../../utils/test-utils/test-utils';
 
-let car: CartPropTypes;
-const setup = () => {
-  render(
-    <BrowserRouter>
-      <Provider store={store}>
-        <Car
-          picture={car.picture}
-          brand={car.brand}
-          model={car.model}
-          price={car.price}
-          color={car.color}
-          length={car.length}
-          height={car.height}
-          width={car.width}
-          description={car.description}
-          id={car.id}
-        />
-      </Provider>
-    </BrowserRouter>
-  );
-};
+const setUp = (props: CarPropTypes) => <Car {...props} />;
+
 describe('Car componenet', () => {
+  let car: CartPropTypes;
   beforeEach(() => {
     car = { ...cars[0], amount: 0, total: 0 };
   });
-  test('check only test render', () => {
-    act(() => {
-      setup();
-    });
+  test('check only text render', () => {
     i18n.init();
-    expect(screen.getAllByAltText('car')).toBeDefined();
-    expect(screen.getByText('Add to cart')).toBeInTheDocument();
-    expect(
-      screen.getByText(`Model: ${car.brand} ${car.model}`)
-    ).toBeInTheDocument();
-    expect(screen.getByText(`Price: ${car.price}$`)).toBeInTheDocument();
-    expect(
-      screen.getByText(`Description: ${car.description}`)
-    ).toBeInTheDocument();
+    const { getAllByAltText, getByText } = render(setUp({ ...car }));
+    expect(getAllByAltText(/car/i)).toBeDefined();
+    expect(getByText(/Add to cart/i)).toBeInTheDocument();
+    expect(getByText(`Model: ${car.brand} ${car.model}`)).toBeInTheDocument();
+    expect(getByText(`Price: ${car.price}$`)).toBeInTheDocument();
+    expect(getByText(`Description: ${car.description}`)).toBeInTheDocument();
   });
 });

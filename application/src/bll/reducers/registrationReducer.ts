@@ -1,5 +1,11 @@
 import { Dispatch } from 'redux';
 
+export type RegistratonInitStateTypes = {
+  email: string;
+  password: string;
+  isLoading: boolean;
+  error: string;
+};
 const defaultRegistrationState = {
   email: '',
   password: '',
@@ -8,9 +14,9 @@ const defaultRegistrationState = {
 };
 
 export const registrationReducer = (
-  state: typeof defaultRegistrationState = defaultRegistrationState,
+  state: RegistratonInitStateTypes = defaultRegistrationState,
   action: ActionType
-): typeof defaultRegistrationState => {
+): RegistratonInitStateTypes => {
   switch (action.type) {
     case 'REGISTER-SET-EMAIL':
       return { ...state, email: action.email };

@@ -8,7 +8,9 @@
     "prettier",
     "plugin:jest/recommended",
     "plugin:react/recommended",
-    "airbnb"
+    "airbnb",
+    "plugin:cypress/recommended",
+    "plugin:testing-library/react"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -18,13 +20,33 @@
     "ecmaVersion": 12,
     "sourceType": "module"
   },
-  "plugins": ["react", "prettier", "@typescript-eslint"],
+  "plugins": [
+    "react",
+    "prettier",
+    "@typescript-eslint",
+    "cypress",
+    "react-hooks",
+    "testing-library"
+  ],
+
   "rules": {
     "jest/no-disabled-tests": "warn",
     "jest/no-focused-tests": "error",
     "jest/no-identical-title": "error",
     "jest/prefer-to-have-length": "warn",
     "jest/valid-expect": "error",
+    "testing-library/await-async-query": "error",
+    "testing-library/no-await-sync-query": "error",
+    "testing-library/no-debugging-utils": "off",
+    "testing-library/no-dom-import": "off",
+    "testing-library/no-render-in-setup": "error",
+    "testing-library/prefer-screen-queries": "off",
+    "cypress/no-assigning-return-values": "error",
+    "cypress/no-unnecessary-waiting": "error",
+    "cypress/assertion-before-screenshot": "warn",
+    "cypress/no-force": "warn",
+    "cypress/no-async-tests": "error",
+    "cypress/no-pause": "error",
     "function-paren-newline": "off",
     "no-debugger": "warn",
     "array-callback-return": "off",
@@ -56,7 +78,6 @@
         "functions": "never"
       }
     ],
-
     "prettier/prettier": ["error", { "endOfLine": "auto" }],
     "arrow-body-style": [
       "error",
@@ -64,7 +85,6 @@
       { "requireReturnForObjectLiteral": true }
     ],
     "react/prop-types": "off",
-
     "react/jsx-uses-react": "off",
     "react/react-in-jsx-scope": "off",
     "react/jsx-curly-newline": [
@@ -82,8 +102,10 @@
       "error",
       { "extensions": [".jsx", ".tsx"] }
     ],
-    "react/jsx-props-no-spreading": "off",
+
+    "react/button-has-type": "off",
     "jsx-quotes": ["error", "prefer-double"],
+    "react/jsx-props-no-spreading": "off",
     "object-curly-newline": [
       "error",
       {

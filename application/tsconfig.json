@@ -2,11 +2,8 @@
   "compilerOptions": {
     "esModuleInterop": true,
     "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "es6"],
+    "types": ["jest", "node", "@testing-library/jest-dom", "cypress"],
     "allowJs": true,
     "skipLibCheck": true,
     "allowSyntheticDefaultImports": true,
@@ -16,12 +13,9 @@
     "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "isolatedModules": true
   },
-  "include": [
-    "src",
-    "src/setupTests.ts"  ]
-
+  "include": ["src", "src/setupTests.ts", "cypress"]
 }

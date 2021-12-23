@@ -14,7 +14,7 @@ import { cleanCart } from '../../bll/reducers/cartReducer';
 export const NavBar: React.FC = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const handlerDeleteAccount = () => {
     dispatch(deleteAccount());

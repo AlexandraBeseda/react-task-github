@@ -5,7 +5,6 @@ import i18n from '../../../utils/i18next';
 import cars from '../../../data/database.json';
 import { store } from '../../../bll/store';
 import { CartPropTypes } from '../../../bll/reducers/cartReducer';
-import { CartPropTypes } from '../../../bll/reducers/cartReducer';
 
 const setUp = (props: CartPropTypes) => (
   <Provider store={store}>

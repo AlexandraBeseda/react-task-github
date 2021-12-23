@@ -1,7 +1,7 @@
 import { BrowserRouter } from 'react-router-dom';
 import { CartFormHeader } from './CartFormHeader';
 import i18n from '../../../../utils/i18next';
-import { render } from './../../../../utils/test-utils/test-utils';
+import { render } from '../../../../utils/test-utils/test-utils';
 
 const setUp = (props: { total: number; orderNum: string }) => (
   <CartFormHeader {...props} />

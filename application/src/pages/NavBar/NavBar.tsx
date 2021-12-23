@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { v1 } from 'uuid';
 import { useTranslation } from 'react-i18next';
+import i18n from 'i18next';
 import { redirect } from '../../bll/redirect';
 import { PATH } from '../PageRoutes/PageRoutes';
 import styles from './NavBar.module.css';

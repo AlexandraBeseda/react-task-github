@@ -6,12 +6,6 @@ const setUp = (props: { total: number; orderNum: string }) => (
   <CartFormHeader {...props} />
 );
 
-const setUp = (props: { total: number; orderNum: string }) => (
-  <BrowserRouter>
-    <CartFormHeader {...props} />
-  </BrowserRouter>
-);
-
 describe('CartFormHeader', () => {
   test('check only text render', () => {
     i18n.init();

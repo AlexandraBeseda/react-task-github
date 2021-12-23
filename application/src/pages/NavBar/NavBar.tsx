@@ -59,6 +59,7 @@ export const NavBar: React.FC = () => {
         ))}
       </ul>
       <button
+        id="forCypress"
         className={styles.button}
         type="button"
         onClick={handlerDeleteAccount}

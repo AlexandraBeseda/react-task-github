@@ -12,6 +12,7 @@ describe('validateCart function', () => {
 
   beforeEach(() => {
     values = {
+
       surname: '',
       name: '',
       email: '',

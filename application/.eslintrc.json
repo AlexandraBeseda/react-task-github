@@ -41,6 +41,7 @@
     "testing-library/no-await-sync-query": "error",
     "testing-library/no-debugging-utils": "off",
     "testing-library/no-dom-import": "off",
+    "testing-library/no-render-in-setup":"error",
       /* *********************** */
       "cypress/no-assigning-return-values": "error",
     "cypress/no-unnecessary-waiting": "error",
@@ -93,6 +94,7 @@
       "@typescript-eslint/no-use-before-define": "error",
       "linebreak-style": "off",
       "react/jsx-filename-extension": ["error", { "extensions": [".jsx", ".tsx"] }],
+      "react/button-has-type":"off",
       "jsx-quotes": ["error","prefer-double"],
       "object-curly-newline": ["error", {
         "ObjectExpression": { "multiline": true },

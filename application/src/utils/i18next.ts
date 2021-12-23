@@ -18,8 +18,7 @@ i18n
     resources: {
       en: { translation: translationENG },
       ru: { translation: translationRU }
-    },
-    react: { wait: false }
+    }
   });
 
 export default i18n;

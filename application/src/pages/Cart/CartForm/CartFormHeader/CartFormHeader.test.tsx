@@ -5,7 +5,6 @@ import { render } from '../../../../utils/test-utils/test-utils';
 const setUp = (props: { total: number; orderNum: string }) => (
   <CartFormHeader {...props} />
 );
-
 describe('CartFormHeader', () => {
   test('check only text render', () => {
     i18n.init();

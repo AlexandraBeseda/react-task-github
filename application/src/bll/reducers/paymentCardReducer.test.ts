@@ -1,5 +1,4 @@
 import { v1 } from 'uuid';
-
 import { paymentCardReducer, setCustomerData } from './paymentCardReducer';
 
 describe('Payment card reducer', () => {

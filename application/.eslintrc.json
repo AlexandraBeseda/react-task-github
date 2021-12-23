@@ -9,7 +9,6 @@
     "plugin:jest/recommended",
     "plugin:react/recommended",
     "airbnb",
-    "plugin:cypress/recommended",
     "plugin:testing-library/react"
   ],
   "parser": "@typescript-eslint/parser",
@@ -24,7 +23,6 @@
     "react",
     "prettier",
     "@typescript-eslint",
-    "cypress",
     "react-hooks",
     "testing-library"
   ],

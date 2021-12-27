@@ -47,6 +47,7 @@ export const NavBar: React.FC = () => {
         {NAV_BAR_ARRAY.map((elem) => (
           <li key={elem.id}>
             <NavLink
+              data-cy={`data-cy-app-${elem.pageName}`}
               key={elem.id}
               className={({ isActive }) =>
                 isActive ? styles.activeNavLink : ' '
@@ -59,7 +60,7 @@ export const NavBar: React.FC = () => {
         ))}
       </ul>
       <button
-        id="forCypress"
+        data-cy="data-cy-app-deleteAccount"
         className={styles.button}
         type="button"
         onClick={handlerDeleteAccount}

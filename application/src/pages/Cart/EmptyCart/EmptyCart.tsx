@@ -11,12 +11,20 @@ export const EmptyCart: React.FC = () => {
     <div className={style.mainBlock}>
       <h1>{t('cart.cartIsEmpty')}</h1>
       <h3>
-        <NavLink className={style.link} to={PATH.CARS}>
+        <NavLink
+          className={style.link}
+          to={PATH.CARS}
+          data-cy="data-cy-app-startShopping"
+        >
           {t('messages.startShopping')}
         </NavLink>
       </h3>
       <h3>
-        <NavLink className={style.link} to={PATH.ORDERS_HISTORY}>
+        <NavLink
+          className={style.link}
+          to={PATH.ORDERS_HISTORY}
+          data-cy="data-cy-app-orderHistory"
+        >
           {t('messages.orderHistory')}
         </NavLink>
       </h3>

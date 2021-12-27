@@ -77,13 +77,16 @@ export const Car: React.FC<CarPropTypes> = ({
       </div>
       <div>
         <button
+          data-cy={`data-cy-app-${brand}`}
           className={style.addButton}
           onClick={handleAddToCart}
           type="button"
         >
           {t('common.button.addToCart')}
         </button>
-        <div className={style.message}>{message}</div>
+        <div data-cy={`data-cy-app-${brand}-message`} className={style.message}>
+          {message}
+        </div>
       </div>
     </div>
   );

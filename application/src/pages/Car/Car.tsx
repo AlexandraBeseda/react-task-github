@@ -77,7 +77,7 @@ export const Car: React.FC<CarPropTypes> = ({
       </div>
       <div>
         <button
-          data-cy={`data-cy-app-${brand}`}
+          data-cy={`data-cy-app-button-car-brand-${brand}`}
           className={style.addButton}
           onClick={handleAddToCart}
           type="button"

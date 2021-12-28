@@ -14,7 +14,7 @@ export const EmptyCart: React.FC = () => {
         <NavLink
           className={style.link}
           to={PATH.CARS}
-          data-cy="data-cy-app-startShopping"
+          data-cy="data-cy-app-link-start-shopping"
         >
           {t('messages.startShopping')}
         </NavLink>
@@ -23,7 +23,7 @@ export const EmptyCart: React.FC = () => {
         <NavLink
           className={style.link}
           to={PATH.ORDERS_HISTORY}
-          data-cy="data-cy-app-orderHistory"
+          data-cy="data-cy-app-link-order-history"
         >
           {t('messages.orderHistory')}
         </NavLink>

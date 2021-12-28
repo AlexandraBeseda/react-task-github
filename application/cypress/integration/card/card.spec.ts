@@ -1,33 +1,27 @@
-/* eslint-disable jest/expect-expect */
-/* eslint-disable jest/valid-expect */
 /// <reference types="cypress" />
 import { registrationHelper } from '../utils/registrationHelper';
 
 describe('Card should be checked', () => {
   it('card reducer should be empty', () => {
     registrationHelper();
-    cy.get('[data-cy=data-cy-app-cars]').click();
-    cy.get('[data-cy=data-cy-app-BMW]').click();
-    cy.get('[data-cy=data-cy-app-Volvo]').click();
-    cy.get('[data-cy=data-cy-app-cart]').click();
-    cy.window()
-      .its('store')
-      .invoke('getState')
-      .its('cartReducer')
-      .should('have.length', 2);
-    cy.window()
-      .its('store')
-      .invoke('getState')
-      .its('paymentCardReducer')
-      .should('deep.equal', {
-        surname: '',
-        name: '',
-        email: '',
-        mobile: '',
-        orderNum: '',
-        total: 0
-      });
-
+    cy.get('[data-cy=data-cy-app-navigation-link-cars]').click();
+    cy.get('[data-cy=data-cy-app-button-car-brand-BMW]').click();
+    cy.get('[data-cy=data-cy-app-button-car-brand-Volvo]').click();
+    cy.get('[data-cy=data-cy-app-navigation-link-cart]').click();
+    cy.get(
+      '[data-cy="data-cy-app-link-cart-car-in-cart-BMW-X2 xDrive28i"]'
+    ).should('have.text', 'BMW X2 xDrive28i');
+    cy.get(
+      '[data-cy="data-cy-app-link-cart-car-in-cart-Volvo-XC60 T6 Momentum"]'
+    ).should('have.text', 'Volvo XC60 T6 Momentum');
+    cy.get('[data-cy="data-cy-app-link-cart-after-order-form"]').should(
+      'contain.text',
+      'The total amount of the order'
+    );
+    cy.get('[data-cy="data-cy-app-link-cart-after-order-form"]').should(
+      'contain.text',
+      'View order history'
+    );
     cy.get('input[placeholder=Email]')
       .type('pararam862111@gmail.com')
       .should('have.value', 'pararam862111@gmail.com');
@@ -41,24 +35,18 @@ describe('Card should be checked', () => {
       .type('+375291115588')
       .should('have.value', '+375291115588');
 
-    cy.get('[data-cy=data-cy-app-submitOrder]').click();
-    cy.window()
-      .its('store')
-      .invoke('getState')
-      .its('paymentCardReducer')
-      .should('not.deep.equal', {
-        surname: '',
-        name: '',
-        email: '',
-        mobile: '',
-        orderNum: '',
-        total: 0
-      });
-    /* view order history */
-    //  cy.get('.CartFormHeader_link__RimOt').click();
-    /* change language to Ru */
-    //  cy.get('.NavBar_menu__3YfQK > :nth-child(2)').click();
-    /* delete account */
-    //   cy.get('#forCypress').click();
+    cy.get('[data-cy=data-cy-app-buttom-submit-order]').click();
+    cy.get('[data-cy="data-cy-app-link-cart-after-order-form"]')
+      .children()
+      .should('have.length', 4);
+
+    cy.get('[data-cy="data-cy-app-link-cart-after-order-form"]').should(
+      'contain.text',
+      'Your order has been processed'
+    );
+    cy.get('[data-cy="data-cy-app-link-cart-after-order-form"]').should(
+      'contain.text',
+      'Your order num:'
+    );
   });
 });

@@ -108,7 +108,7 @@ export const CustomForm: React.FC<{ total: number }> = ({ total }) => {
           </div>
           <div>
             <button
-              data-cy="data-cy-app-submitOrder"
+              data-cy="data-cy-app-buttom-submit-order"
               type="submit"
               disabled={isSubmitting}
             >

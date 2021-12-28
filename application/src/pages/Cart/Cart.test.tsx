@@ -1,4 +1,3 @@
-/* eslint-disable jest/expect-expect */
 import { Cart } from './Cart';
 import i18n from '../../utils/i18next';
 import { render } from '../../utils/test-utils/test-utils';

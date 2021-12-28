@@ -1,21 +1,12 @@
 import { registrationHelper } from '../utils/registrationHelper';
-/* eslint-disable jest/expect-expect */
-/* eslint-disable jest/valid-expect */
 /// <reference types="cypress" />
+import 'cypress-localstorage-commands';
 
 describe('Registrate account', () => {
-  it('should be checked registration in redux store and localStorage', () => {
+  it('should be checked registration in localStorage', () => {
     cy.visit('http://localhost:3000/regist');
-    cy.window()
-      .its('store')
-      .invoke('getState')
-      .its('registrationReducer')
-      .should('deep.equal', {
-        email: '',
-        password: '',
-        isLoading: false,
-        error: ''
-      });
+    cy.get('input[type=email]').should('have.value', '');
+    cy.get('input[type=password]').should('have.value', '');
     cy.get('input[type=email]')
       .type('pararam862111@gmail.com')
       .should('have.value', 'pararam862111@gmail.com');
@@ -25,36 +16,22 @@ describe('Registrate account', () => {
     cy.get('button[type=submit]').click();
     cy.getLocalStorage('email').should('equal', 'pararam862111@gmail.com');
     cy.getLocalStorage('password').should('equal', '123456790');
-    cy.window()
-      .its('store')
-      .invoke('getState')
-      .its('registrationReducer')
-      .should('deep.equal', {
-        email: 'pararam862111@gmail.com',
-        password: '123456790',
-        isLoading: false,
-        error: ''
-      });
   });
   it('should be checked incorrect email and password', () => {
     cy.visit('http://localhost:3000/regist');
     cy.get('input[type=email]').type('pararam');
     cy.get('input[type=password]').type('1');
-    cy.get('[data-cy=data-cy-app-errorEmail]').should('exist');
-    cy.get('[data-cy=data-cy-app-errorPassword]').should('exist');
+    cy.get('[data-cy=data-cy-app-link-registration-error-email]').should(
+      'exist'
+    );
+    cy.get('[data-cy=data-cy-app-link-registration-error-password]').should(
+      'exist'
+    );
   });
   it('account should be deleted', () => {
     registrationHelper();
-    cy.get('[data-cy=data-cy-app-deleteAccount]').click();
-    cy.window()
-      .its('store')
-      .invoke('getState')
-      .its('registrationReducer')
-      .should('deep.equal', {
-        email: '',
-        password: '',
-        isLoading: false,
-        error: ''
-      });
+    cy.get('[data-cy=data-cy-app-button-delete-account]').click();
+    cy.get('input[type=email]').should('have.value', '');
+    cy.get('input[type=password]').should('have.value', '');
   });
 });

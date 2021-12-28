@@ -22,8 +22,16 @@ export const CarInCart: React.FC<CartPropTypes> = ({ ...props }) => {
   };
   const total = formatTotalAmount(props.total);
   return (
-    <div className={style.card}>
-      <p className={style.carName}>{`${props.brand} ${props.model}`}</p>
+    <div
+      data-cy={`data-cy-app-link-cart-car-in-cart-${props.brand}`}
+      className={style.card}
+    >
+      <p
+        data-cy={`data-cy-app-link-cart-car-in-cart-${props.brand}-${props.model}`}
+        className={style.carName}
+      >
+        {`${props.brand} ${props.model}`}
+      </p>
       <p className={style.carPrice}>{`${props.price} $`}</p>
       <input
         min={1}

@@ -21,4 +21,10 @@ export const store = createStore(
 export type AppStateType = ReturnType<typeof rootReducer>;
 // @ts-ignore
 window.store = store;
+
+// @ts-ignore
+if (window.Cypress) {
+  // @ts-ignore
+  window.store = store;
+}
 export default store;

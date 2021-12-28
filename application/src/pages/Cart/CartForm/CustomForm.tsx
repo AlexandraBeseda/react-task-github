@@ -107,7 +107,11 @@ export const CustomForm: React.FC<{ total: number }> = ({ total }) => {
               t(`cart.form.error.${errors.mobile}`)}
           </div>
           <div>
-            <button type="submit" disabled={isSubmitting}>
+            <button
+              data-cy="data-cy-app-buttom-submit-order"
+              type="submit"
+              disabled={isSubmitting}
+            >
               {t('common.button.submit')}
             </button>
           </div>

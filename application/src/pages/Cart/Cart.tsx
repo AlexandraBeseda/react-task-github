@@ -39,7 +39,10 @@ export const Cart: React.FC = () => {
     return <CartFormHeader total={totalCarPrice} orderNum={orderNum} />;
   }
   return (
-    <div className={style.mainBlock}>
+    <div
+      data-cy="data-cy-app-link-cart-block-car-in-cart"
+      className={style.mainBlock}
+    >
       <CartHeader />
       {cartReducer.map((car) => (
         <CarInCart

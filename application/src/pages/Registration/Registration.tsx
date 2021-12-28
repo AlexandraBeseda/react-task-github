@@ -57,7 +57,10 @@ export const Registration: React.FC = () => {
                 onBlur={handleBlur}
                 value={values.email}
               />
-              <div className={style.error}>
+              <div
+                className={style.error}
+                data-cy="data-cy-app-link-registration-error-email"
+              >
                 {errors.email &&
                   touched.email &&
                   t(`form.error.${errors.email}`)}
@@ -70,7 +73,10 @@ export const Registration: React.FC = () => {
                 onBlur={handleBlur}
                 value={values.password}
               />
-              <div className={style.error}>
+              <div
+                className={style.error}
+                data-cy="data-cy-app-link-registration-error-password"
+              >
                 {errors.password &&
                   touched.password &&
                   t(`form.error.${errors.password}`)}

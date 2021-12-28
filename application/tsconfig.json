@@ -3,7 +3,13 @@
     "esModuleInterop": true,
     "target": "es5",
     "lib": ["dom", "dom.iterable", "es6"],
-    "types": ["jest", "node", "@testing-library/jest-dom", "cypress"],
+    "types": [
+      "jest",
+      "node",
+      "@testing-library/jest-dom",
+      "cypress",
+      "cypress-localstorage-commands"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "allowSyntheticDefaultImports": true,

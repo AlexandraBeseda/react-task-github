@@ -21,7 +21,12 @@ export const OrdersHistory: React.FC = () => {
 
   if (!orderHistory) {
     return (
-      <div className={style.mainBlock}>{t('messages.orderHistoryIsEmpty')}</div>
+      <div
+        data-cy="data-cy-app-empty-order-history"
+        className={style.mainBlock}
+      >
+        {t('messages.orderHistoryIsEmpty')}
+      </div>
     );
   }
   return (
